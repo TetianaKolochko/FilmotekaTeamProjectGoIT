@@ -1,2 +1,20 @@
-@import './common';
-@import './example';
+// @import './example';
+@import './base/reset';
+@import './utils/variables';
+@import './base/common';
+
+@import './layout/header';
+@import './layout/hero';
+@import './layout/mainPage';
+@import './layout/library';
+@import './layout/footer';
+
+@import './components/button';
+@import './components/filmSet';
+@import './components/filmCard';
+@import './components/numberOfPages';
+@import './components/modal';
+
+
+
+
