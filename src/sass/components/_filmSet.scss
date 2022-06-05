@@ -1,0 +1,75 @@
+
+.gallery__item{
+	// border: #ff6b01;
+	@media screen and (min-width: 320px) {
+			width: 280px;
+			height: 438px;
+		}
+		@media screen and (min-width: 768px){
+			width: 336px;
+			height: 495px;
+		}
+		@media screen and (min-width: 1024px) {
+			width: 309px;
+			height: 489px;
+		}
+}
+
+.movie-card {
+	display: block;
+}
+
+.poster{
+	width: 100%;
+	@media screen and (min-width: 320px) {
+			height: 398px;
+		}
+	@media screen and (min-width: 768px) {
+			height: 455px;
+		}
+	@media screen and (min-width: 1024px) {
+			height: 449px;
+		}
+}
+
+.movie-details{
+	display: flex;
+	flex-direction: row;
+	
+	.movie-details-info{
+		display: block;
+		margin: 0px 9px 0px 0px;
+		.movie-name{
+			font-family: 'Roboto';
+				font-weight: 500;
+				font-style: normal;
+				font-size: 14px;
+			text-transform: uppercase;
+			color: #000000;
+		}
+		.movie-description{
+			display: flex;
+			flex-direction: row;
+		}
+		.movie-info{
+			font-family: 'Roboto';
+				font-weight: 500;
+				font-style: normal;
+				font-size: 14px;
+			color: #ff6b08;
+			margin-right: 9px;
+		}
+	}
+	.movie-details-rate{
+		display: flex;
+		width: 36px;
+		height: 16px;
+		background-color: #ff6b01;
+		align-items: center;
+		justify-content: center;
+		color: #ffffff;
+		border-radius: 5px;
+		font-size: 12px;
+			line-height: 14px;
+	}
+}
