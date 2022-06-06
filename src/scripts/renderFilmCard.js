@@ -1,4 +1,5 @@
 import { popularFilm } from '././fetch.js'
+const gallery = document.querySelector('.gallery');
 
 const place = document.querySelector('.main');
 
@@ -33,7 +34,9 @@ export function renderFilmCardHtml(filmArray) {
           </div>
         </li>`
     }, "");
-    return place.insertAdjacentHTML('beforeend', renderHtml); 
+  
+  
+    return gallery.insertAdjacentHTML('beforeend', renderHtml);
 }
 
 //src="https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png"
