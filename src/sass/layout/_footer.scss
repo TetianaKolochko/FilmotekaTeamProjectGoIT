@@ -1,11 +1,11 @@
 .footer {
     background-color: #F7F7F7 ;
-    width: 1024px;
-    height: 77px;
+    
 }
+
 .footer__text {
     color: #545454;
-    height: 77px;
+    padding: 30px;
 
     font-family: 'Roboto';
     font-style: normal;
@@ -17,4 +17,9 @@
     align-items: center;
     text-align: center;
     justify-content: center;
+
+    
+}
+.footer__text-info {
+    margin-right: 10px;
 }
