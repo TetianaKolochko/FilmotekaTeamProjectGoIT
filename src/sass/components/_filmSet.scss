@@ -1,41 +1,16 @@
-
+.gallery__cards{
+	display: flex;
+	flex-wrap: wrap;
+	margin: -15px;
+}
 .gallery__item{
-	// border: #ff6b01;
-	@media screen and (min-width: 320px) {
-			width: 280px;
-			height: 438px;
-		}
-		@media screen and (min-width: 768px){
-			width: 336px;
-			height: 495px;
-		}
-		@media screen and (min-width: 1024px) {
-			width: 309px;
-			height: 489px;
-		}
+	flex-basis: calc(100% / 3 - 30px);
+		margin: 15px;
 }
-
-.movie-card {
-	display: block;
-}
-
-.poster{
-	width: 100%;
-	@media screen and (min-width: 320px) {
-			height: 398px;
-		}
-	@media screen and (min-width: 768px) {
-			height: 455px;
-		}
-	@media screen and (min-width: 1024px) {
-			height: 449px;
-		}
-}
-
 .movie-details{
 	display: flex;
 	flex-direction: row;
-	
+
 	.movie-details-info{
 		display: block;
 		margin: 0px 9px 0px 0px;
@@ -73,3 +48,74 @@
 			line-height: 14px;
 	}
 }
+
+.gallery__cards{
+	@media screen and (min-width: 320px) {
+			padding-top: 20px;
+			padding-bottom: 60px;
+		}
+	
+		@media screen and (min-width: 768px) {
+		    padding-top: 60px;
+			padding-bottom: 60px;
+		}
+	
+		@media screen and (min-width: 1024px) {
+			padding-top: 60px;
+			padding-bottom: 60px;
+			display: flex;
+			flex-wrap: wrap;
+			margin-left: -16px;
+			margin-right: -16px;
+		}
+	
+}
+.gallery__item{
+	// border: #ff6b01;
+	@media screen and (min-width: 320px) {
+			width: 280px;
+			height: 438px;
+		}
+		@media screen and (min-width: 768px){
+			width: 336px;
+			height: 495px;
+		}
+		@media screen and (min-width: 1024px) {
+			max-width: 309px;
+			height: 100%;
+			flex-basis: calc(100% / 3 - 16px);
+			margin-left: 16px;
+			margin-right: 16px;
+			
+		}
+}
+
+
+.poster{
+	width: 100%;
+	@media screen and (min-width: 320px) {
+			height: 398px;
+		}
+	@media screen and (min-width: 768px) {
+			height: 455px;
+		}
+	@media screen and (min-width: 1024px) {
+			height: 449px;
+		}
+}
+
+.movie-card {
+	@media screen and (min-width: 320px) {}
+
+	@media screen and (min-width: 768px) {}
+
+	@media screen and (min-width: 1024px) {
+		display: grid;
+		grid-template-columns: repeat(3, 309);
+		grid-gap: 16px;
+		object-fit: cover;
+	}
+}
+
+
+
