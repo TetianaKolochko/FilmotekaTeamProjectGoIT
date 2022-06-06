@@ -1,30 +1,114 @@
 .hero__section {
-    background-image:linear-gradient(to left,
-        rgba(0, 0, 0, 0.56) 0%,
-        rgba(0, 0, 0, 0.56) 100%),
-        url(./../images/hero_bg_desktop-min.jpg);
+    background-image: linear-gradient(to left,
+                rgba(0, 0, 0, 0.56) 0%,
+                rgba(0, 0, 0, 0.56) 100%),
+            url(./../images/hero/hero_bg_phone.jpg);
+    @media (min-device-pixel-ratio: 2), (min-resolution:192dpi), (min-resolution:2dppx) {
+        background-image: linear-gradient(to left,
+                    rgba(0, 0, 0, 0.56) 0%,
+                    rgba(0, 0, 0, 0.56) 100%),
+                url(./../images/hero/hero_bg_phone@2x.jpg);
+    };
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    max-width: 1024px;
+    width:100%;
+    min-width:320px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 116px;
-    padding-bottom: 80px;
+    padding-top: 120px;
+
+    @media screen and (min-width:$bp-tablet) {
+        padding-top: 115px;
+        background-image: linear-gradient(to left,
+                rgba(0, 0, 0, 0.56) 0%,
+                rgba(0, 0, 0, 0.56) 100%),
+            url(./../images/hero/hero_bg_tablet.jpg);
+    
+        @media (min-device-pixel-ratio: 2),
+        (min-resolution:192dpi), (min-resolution:2dppx) {
+            background-image: linear-gradient(to left,
+                    rgba(0, 0, 0, 0.56) 0%,
+                    rgba(0, 0, 0, 0.56) 100%),
+                url(./../images/hero/hero_bg_tablet@2x.jpg);
+        };
+    }
+    @media screen and (min-width:$bp-desktop) {
+        background-image: linear-gradient(to left,
+                rgba(0, 0, 0, 0.56) 0%,
+                rgba(0, 0, 0, 0.56) 100%),
+            url(./../images/hero/hero_bg_desktop.jpg);
+    @media (min-device-pixel-ratio: 2), (min-resolution:192dpi), (min-resolution:2dppx) {
+        background-image: linear-gradient(to left,
+                    rgba(0, 0, 0, 0.56) 0%,
+                    rgba(0, 0, 0, 0.56) 100%),
+                url(./../images/hero/hero_bg_desktop@2x.jpg);
+    };
+    }
+
+    &.js-library {
+        background-image: linear-gradient(to left,
+                rgba(0, 0, 0, 0.56) 0%,
+                rgba(0, 0, 0, 0.56) 100%),
+            url(./../images/hero/hero_bg_library_phone.jpg);
+    @media (min-device-pixel-ratio: 2), (min-resolution:192dpi), (min-resolution:2dppx) {
+        background-image: linear-gradient(to left,
+                    rgba(0, 0, 0, 0.56) 0%,
+                    rgba(0, 0, 0, 0.56) 100%),
+                url(./../images/hero/hero_bg_library_phone@2x.jpg);
+    };
+
+    @media screen and (min-width:$bp-tablet) {
+        background-image: linear-gradient(to left,
+                rgba(0, 0, 0, 0.56) 0%,
+                rgba(0, 0, 0, 0.56) 100%),
+            url(./../images/hero/hero_bg_library_tablet.jpg);
+    
+        @media (min-device-pixel-ratio: 2),
+        (min-resolution:192dpi), (min-resolution:2dppx) {
+            background-image: linear-gradient(to left,
+                    rgba(0, 0, 0, 0.56) 0%,
+                    rgba(0, 0, 0, 0.56) 100%),
+                url(./../images/hero/hero_bg_library_tablet@2x.jpg);
+        };
+    }
+
+    @media screen and (min-width:$bp-desktop) {
+        background-image: linear-gradient(to left,
+                rgba(0, 0, 0, 0.56) 0%,
+                rgba(0, 0, 0, 0.56) 100%),
+            url(./../images/hero/hero_bg_library_desktop.jpg);
+    @media (min-device-pixel-ratio: 2), (min-resolution:192dpi), (min-resolution:2dppx) {
+        background-image: linear-gradient(to left,
+                    rgba(0, 0, 0, 0.56) 0%,
+                    rgba(0, 0, 0, 0.56) 100%),
+                url(./../images/hero/hero_bg_library_desktop@2x.jpg);
+    };
+    }
+}
 }
 
 .hero__container {
-    display: flex;
-    justify-content: center;
-    width: 900px;
+    min-height:110px;
+
+    @media screen and (min-width:$bp-tablet) {
+        min-height:100px;
+    }
 }
 
 .search__wrapp {
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    width:336px;
+    margin-bottom: 16px;
+    width:100%;
+    max-width:336px;
     color: $color-lightest;
+
+    @media screen and (min-width: $bp-tablet) {
+        width:336px;
+        margin-bottom: 20px;
+    }
 }
 
 .search__input {
@@ -37,6 +121,11 @@
     border-bottom:1px solid $color-lightest;
     color: inherit;
     font-size: 14px;
+    cursor: pointer;
+
+    &::placeholder {
+        color:transparent;
+    }
 }
 
 .search__label {
@@ -55,3 +144,17 @@
     }
 }
 
+.hero__info {
+    display:none;
+    color: #FF001B;
+    font-size: 14px;
+    line-height: 1.16;
+
+    @media screen and (max-width:767.98px) {
+        width:250px;
+    }
+
+    @media screen and (min-width:$bp-tablet) {
+        text-align: center;
+    }
+}
