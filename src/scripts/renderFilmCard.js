@@ -15,13 +15,13 @@ export function renderMovieCardOnMainPage(filmArray) {
   const { original_title, poster_path, genre_ids, id, release_date } = film;
         return html +=
         `<li class="gallery__item">
-          <div class='gallery__poster-wrapp'>
+          <a class="gallery__link">
             <img class='gallery__poster' src='https://image.tmdb.org/t/p/w500/${poster_path}' loading="lazy" alt='Poster for film ${original_title}' data-id=${id} />
-          </div>
           <div class="gallery__movie-details">
             <p class="movie-details__movie-name">${original_title}</p>
             <p class="movie-details__movie-info">${genre_ids} | ${release_date}</p>
           </div>
+          </a>
         </li>`
     }, "");
 
