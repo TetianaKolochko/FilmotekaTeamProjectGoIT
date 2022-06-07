@@ -1,9 +1,8 @@
 import { popularFilm } from '../scripts/fetch.js'
 import { refs } from './refs.js';
 
+const gallery = document.querySelector('.gallery');
 // import movieCardTemplate from '.././templates/cards.hbs';
-
-// const place = document.querySelector('.main');
 
 popularFilm().then((filmSet) => {
     console.log(filmSet)
@@ -12,6 +11,7 @@ popularFilm().then((filmSet) => {
 });
 
 export function renderFilmCardHtml(filmArray) {
+
   const markup = filmArray.reduce((html, film) => {
   const { original_title, poster_path, genre_ids, id, release_date } = film;
         return html +=
@@ -25,7 +25,8 @@ export function renderFilmCardHtml(filmArray) {
           </div>
         </li>`
     }, "");
-    return refs.movieGallery.insertAdjacentHTML('beforeend', markup); 
+
+    return refs.movieGallery.insertAdjacentHTML('beforeend', markup);
 }
 
 //src="https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png"
