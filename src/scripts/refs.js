@@ -4,5 +4,6 @@ export const refs = {
     headerNav: document.querySelector('.js-header-nav'),
     headerNavLinks: document.querySelectorAll('.js-header-nav__link'),
     searchInput: document.querySelector('.js-search__wrapp'),
-    libraryButtons:document.querySelector('.js-library__button-wrapp'),
+    libraryButtons: document.querySelector('.js-library__button-wrapp'),
+    movieGallery: document.querySelector('.js-gallery')
 }
