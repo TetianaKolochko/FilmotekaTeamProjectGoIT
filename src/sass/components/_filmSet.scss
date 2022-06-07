@@ -23,7 +23,7 @@
 		margin-right: auto;
 		margin-left: auto;
 
-		@media screen and (min-width: 767px) {
+		@media screen and (min-width: 768px) {
 		display: flex;
 		flex-direction: column;
 		// height: 100%;
@@ -52,11 +52,8 @@
    margin-bottom: 20px;
 }
 }
-.movie-card {
-	display: block;
-}
 
-.poster {
+.gallery__poster {
 	width: 100%;
 
 	@media screen and (min-width: 320px) {
@@ -72,12 +69,12 @@
 	}
 }
 
-.movie-details {
+.gallery__movie-details {
 	display: flex;
 	flex-direction: column;
 	margin-top: 8px;
 
-	.movie-name {
+	.movie-details__movie-name {
 	font-family: 'Roboto';
 	font-weight: 500;
 	font-style: normal;
@@ -87,16 +84,15 @@
 	color: $color-darkest;
 	}
 
-	.movie-info {
+	.movie-details__movie-info {
 	font-family: 'Roboto';
 	font-weight: 500;
 	font-style: normal;
 	font-size: 14px;
 	color: $color-accent;
 	margin-right: 9px;
-		}
+	}
 	
-
 	.movie-details-rate {
 	display: flex;
 	width: 36px;
