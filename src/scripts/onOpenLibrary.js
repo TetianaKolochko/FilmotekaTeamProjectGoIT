@@ -1,4 +1,4 @@
-import { refs } from './refs.js'
+import { refs } from './refs.js';
 
 refs.headerNav.addEventListener('click', onChangePage);
 refs.logo.addEventListener('click', onChangePage);

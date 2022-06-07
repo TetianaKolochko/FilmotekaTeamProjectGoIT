@@ -1,12 +1,16 @@
-import { popularFilm } from '../scripts/fetch.js'
+import { popularFilm } from './fetch.js'
 import { refs } from './refs.js';
 import { GENRES } from './genre.js';
 
-popularFilm().then((filmSet) => {
+getPopularMovieList();
+
+function getPopularMovieList() {
+  return popularFilm().then((filmSet) => {
     console.log(filmSet)
     const filmArray = filmSet.results;
     renderMovieCardOnMainPage(filmArray);
-});
+  })
+};
 
 export function renderMovieCardOnMainPage(filmArray) {
   const markup = filmArray.reduce((html, film) => {
