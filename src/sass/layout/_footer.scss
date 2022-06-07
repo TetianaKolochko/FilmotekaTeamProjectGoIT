@@ -1,0 +1,30 @@
+.footer {
+    background-color: #F7F7F7 ;
+    
+}
+
+.footer__text {
+    color: #545454;
+    padding: 30px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+   
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    
+}
+.footer__text-info {
+    margin-right: 10px;
+}
+.footer__social-icon {
+    width: 14px;
+    height: 12.88px;
+    margin-right: 10px;
+}

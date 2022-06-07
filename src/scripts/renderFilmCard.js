@@ -1,39 +1,31 @@
-import { popularFilm } from '././fetch.js'
+import { popularFilm } from '../scripts/fetch.js'
+import { refs } from './refs.js';
 
-const place = document.querySelector('.main');
+// import movieCardTemplate from '.././templates/cards.hbs';
 
 popularFilm().then((filmSet) => {
     console.log(filmSet)
     const filmArray = filmSet.results;
-    renderFilmCardHtml(filmArray);
+    renderMovieCardOnMainPage(filmArray);
 });
 
-export function renderFilmCardHtml(filmArray) {
-    const renderHtml = filmArray.reduce((html, film) => {
+export function renderMovieCardOnMainPage(filmArray) {
+
+  const markup = filmArray.reduce((html, film) => {
+  const { original_title, poster_path, genre_ids, id, release_date } = film;
         return html +=
         `<li class="gallery__item">
-          <div class="movie-card">
-            <img
-              class="poster"
-              src="https://image.tmdb.org/t/p/original/${film.poster_path}"
-              alt="poster of movie"
-              data-id="${film.id}"
-              loading="lazy"
-            />
-
-            <div class="movie-details">
-              <div class="movie-details-info">
-                <p class="movie-name">${film.title}</p>
-                <div class="movie-description">
-                  <p class="movie-info">Documentary, Drama, Other | 2019</p>
-                  <div class="movie-details-rate">6.5</div>
-                </div>
-              </div>
-            </div>
+          <a class="gallery__link">
+            <img class='gallery__poster' src='https://image.tmdb.org/t/p/w500/${poster_path}' loading="lazy" alt='Poster for film ${original_title}' data-id=${id} />
+          <div class="gallery__movie-details">
+            <p class="movie-details__movie-name">${original_title}</p>
+            <p class="movie-details__movie-info">${genre_ids} | ${release_date}</p>
           </div>
+          </a>
         </li>`
     }, "");
-    return place.insertAdjacentHTML('beforeend', renderHtml); 
+
+    return refs.movieGallery.insertAdjacentHTML('beforeend', markup);
 }
 
 //src="https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png"
