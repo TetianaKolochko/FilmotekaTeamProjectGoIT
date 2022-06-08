@@ -34,7 +34,7 @@
     };
     }
 
-    &.js-library {
+    &.js-open-library {
         background-image: $backgroundHeroLinear,
             url(./../images/hero/hero_bg_library_phone.jpg);
     @media (min-device-pixel-ratio: 2), (min-resolution:192dpi), (min-resolution:2dppx) {
@@ -83,6 +83,10 @@
     @media screen and (min-width: $bp-tablet) {
         width:336px;
         margin-bottom: 20px;
+    }
+
+    &.js-open-library {
+        display:none;
     }
 }
 
@@ -138,5 +142,13 @@
 
     @media screen and (min-width:$bp-tablet) {
         text-align: center;
+    }
+}
+
+.library__button-wrapp {
+    display:none;
+
+    &.js-open-library {
+        display:block;
     }
 }
