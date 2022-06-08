@@ -4,7 +4,7 @@ import { GENRES } from './genre.js';
 
 getPopularMovieList();
 
-function getPopularMovieList() {
+export function getPopularMovieList() {
   return popularFilm().then((filmSet) => {
     console.log(filmSet)
     const filmArray = filmSet.results;

@@ -1,50 +1,61 @@
 import { refs } from './refs.js';
+import { resetGallery } from './resetGallery.js';
+import { getPopularMovieList } from './renderFilmCard.js';
+import { createListFilms } from './searsh.js';
 
 refs.headerNav.addEventListener('click', onChangePage);
-refs.logo.addEventListener('click', onChangePage);
+refs.logo.addEventListener('click', onLogoClick);
 
 function onChangePage(e) {
     e.preventDefault();
     const currentElementClick = e.target;
-    console.log(currentElementClick)
     if (currentElementClick.nodeName !== "A") {
         return;
     }
 
     if (currentElementClick.hasAttribute('data-libraryPage')) {
-        onOpenLibraryPage(currentElementClick)
+        showLibraryPage(currentElementClick);
+        setActiveLink(currentElementClick);
     }
     if (currentElementClick.hasAttribute('data-homePage')) {
-         onOpenHomePage(currentElementClick);
-    }
-}
-
-function onOpenHomePage(currentElementClick) {
-    if (!currentElementClick.classList.contains('header-nav__link--active')) {
-        deleteActiveLink()
-        setActiveLink(refs.homePage)
-        refs.heroSection.classList.remove('js-library');
-        refs.libraryButtons.classList.add('visually-hidden');
-        refs.searchInput.classList.remove('visually-hidden');
-        refs.logo.classList.remove('js-library');
-        refs.headerNav.classList.remove('js-library');
-    }
-}
-
-function onOpenLibraryPage(currentElementClick) {
-    if (!currentElementClick.classList.contains('header-nav__link--active')) {
-        onHideSearchInput();
-        refs.heroSection.classList.add('js-library');
-        refs.libraryButtons.classList.remove('visually-hidden');
-        refs.logo.classList.add('js-library');
-        refs.headerNav.classList.add('js-library');
-        deleteActiveLink()
+        showHomePage(currentElementClick);
         setActiveLink(currentElementClick);
     }
 }
 
-function setActiveLink(currentElement) {
-    currentElement.classList.add('header-nav__link--active');
+function onLogoClick(e) {
+    e.preventDefault();
+    const currentElementClick = e.target;
+        showHomePage(currentElementClick);
+        deleteActiveLink()
+        refs.homePage.classList.add('header-nav__link--active');
+}
+
+function showLibraryPage(targetElement) {
+    if (!targetElement.classList.contains('header-nav__link--active')) {
+        resetGallery();
+        refs.changedElementsToOpenLibrary.forEach(el => {
+            return el.classList.add('js-open-library');
+        })
+    }
+}
+
+function showHomePage(targetElement) {
+    if (!targetElement.classList.contains('header-nav__link--active')) {
+        resetGallery();
+        refs.changedElementsToOpenLibrary.forEach(el => {
+            return el.classList.remove('js-open-library');
+        })
+        if (refs.searchInput.value !== "") {
+            return createListFilms(refs.searchInput.value);
+        }
+        getPopularMovieList();
+    }
+}
+
+function setActiveLink(targetElement) {
+    deleteActiveLink();
+    targetElement.classList.add('header-nav__link--active');
 }
 
 function deleteActiveLink() {
@@ -54,8 +65,3 @@ function deleteActiveLink() {
         }
     })
 }
-
-function onHideSearchInput() {
-    refs.searchInput.classList.add('visually-hidden');
-}
-
