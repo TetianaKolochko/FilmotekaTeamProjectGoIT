@@ -15,6 +15,7 @@ const DEBOUNCE_DELAY = 300;
 refs.searchInput.addEventListener("input",debounce(onTexterialInput,DEBOUNCE_DELAY));
 
 function onTexterialInput(e) {
+    onHideSearchInfo()
     resetGallery();
 
     Loading.hourglass({
@@ -39,7 +40,7 @@ export function createListFilms (inputValue) {
 
         if(inputValue.results.length<1){
             Notify.failure(`Can't find a movie with this name`);
-            return;
+            return onShowSearchInfo();
         }
 
         renderMovieCardOnMainPage(inputValue.results);
@@ -47,3 +48,14 @@ export function createListFilms (inputValue) {
 
 }
 
+function onShowSearchInfo () {
+    refs.searchInfo.classList.add('shown');
+}
+
+export function onHideSearchInfo() {
+    refs.searchInfo.classList.remove('shown');
+}
+
+export function onClearSearchInput () {
+    refs.searchInput.value = "";
+}
