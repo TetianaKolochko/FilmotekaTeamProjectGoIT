@@ -1,13 +1,14 @@
 import { refs } from './refs.js';
 import { resetGallery } from './resetGallery.js';
 import { getPopularMovieList } from './renderFilmCard.js';
-import { createListFilms } from './searsh.js';
+import { createListFilms, onHideSearchInfo, onClearSearchInput } from './searsh.js';
 
 refs.headerNav.addEventListener('click', onChangePage);
 refs.logo.addEventListener('click', onLogoClick);
 
 function onChangePage(e) {
     e.preventDefault();
+    onHideSearchInfo();
     const currentElementClick = e.target;
     if (currentElementClick.nodeName !== "A") {
         return;
@@ -26,9 +27,11 @@ function onChangePage(e) {
 function onLogoClick(e) {
     e.preventDefault();
     const currentElementClick = e.target;
-        showHomePage(currentElementClick);
-        deleteActiveLink()
-        refs.homePage.classList.add('header-nav__link--active');
+    onClearSearchInput();
+    onHideSearchInfo();
+    showHomePage(currentElementClick);
+    deleteActiveLink();
+    refs.homePage.classList.add('header-nav__link--active');
 }
 
 function showLibraryPage(targetElement) {

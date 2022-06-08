@@ -119,6 +119,7 @@
     .search__input:focus + & {
         transform: translateY(-20px);
     }
+    
     .search__input:not(:placeholder-shown) + & {
         transform: translateY(-20px);
     }
@@ -126,8 +127,14 @@
 
 .search__icon {
     position: absolute;
-    top:0;
+    top:10%;
     right:0;
+    stroke: white;
+    transition: stroke $duration $timing;
+
+    .search__input:focus ~ & {
+        stroke: $color-accent;
+    }
 }
 
 .hero__info {
@@ -142,6 +149,10 @@
 
     @media screen and (min-width:$bp-tablet) {
         text-align: center;
+    }
+
+    &.shown {
+        display:block;
     }
 }
 
