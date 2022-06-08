@@ -121,12 +121,21 @@
 	transition-duration: 250ms;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+@media screen and (min-width: 768px) {
 .gallery__link:hover,
 .gallery__link:focus {
 	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
 		1px 4px 6px rgba(0, 0, 0, 0.16);
 	transform: scale(1.03);
+}
+}
+@media screen and (max-width: 767px) {
+.gallery__item:hover,
+.gallery__item:focus {
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+		1px 4px 6px rgba(0, 0, 0, 0.16);
+	transform: scale(1.03);
+}
 }
 
 .gallery__poster {
@@ -152,6 +161,7 @@
 	margin-top: 8px;
 	padding-left: 3px;
 	padding-bottom: 2px;
+}
 
 	.movie-details__movie-name {
 		font-family: 'Roboto', sans-serif;
@@ -184,4 +194,3 @@
 		font-size: 12px;
 		line-height: 14px;
 	}
-}
