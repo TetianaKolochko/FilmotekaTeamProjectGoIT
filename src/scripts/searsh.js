@@ -2,6 +2,7 @@ import { refs } from './refs.js';
 import { findWordKey } from './fetch';
 import { resetGallery } from './resetGallery';
 import { renderMovieCardOnMainPage } from './renderFilmCard';
+import { getPopularMovieList } from './renderFilmCard.js';
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
@@ -14,7 +15,7 @@ const DEBOUNCE_DELAY = 300;
 refs.searchInput.addEventListener("input",debounce(onTexterialInput,DEBOUNCE_DELAY));
 
 function onTexterialInput(e) {
-
+    onHideSearchInfo()
     resetGallery();
 
     Loading.hourglass({
@@ -25,25 +26,36 @@ function onTexterialInput(e) {
 
     if(curentCountri===""){
         Loading.remove();
-        return
+        return getPopularMovieList();
     };
     
     createListFilms (curentCountri);
 }
 
-function createListFilms (e){
+export function createListFilms (inputValue) {
 
-    findWordKey(e).then(e=>{
+    findWordKey(inputValue).then(inputValue=>{
 
         Loading.remove();
 
-        if(e.results.length<1){
+        if(inputValue.results.length<1){
             Notify.failure(`Can't find a movie with this name`);
-            return;
+            return onShowSearchInfo();
         }
 
-        renderMovieCardOnMainPage(e.results);
+        renderMovieCardOnMainPage(inputValue.results);
     })
 
 }
 
+function onShowSearchInfo () {
+    refs.searchInfo.classList.add('shown');
+}
+
+export function onHideSearchInfo() {
+    refs.searchInfo.classList.remove('shown');
+}
+
+export function onClearSearchInput () {
+    refs.searchInput.value = "";
+}

@@ -1,18 +1,18 @@
-<section class="section hero__section js-hero__section">
+<section class="section hero__section js-hero__section" data-library>
   <div class="container hero__container js-hero__container">
-    <div class="search__wrapp js-search__wrapp">
-      <input class="search__input" id="movieSearch" type="text" name="movieSearch" placeholder="#" />
+    <div class="search__wrapp js-search__wrapp" data-library>
+      <input class="search__input" id="movieSearch" type="text" name="movieSearch" placeholder="|" />
       <label class="search__label" for="movieSearch">Поиск фильмов</label>
-      <svg class="search__icon" width="15" height="15">
+      <svg class="search__icon" width="12" height="12">
         <use href="./images/sprite.svg#icon-search-2"></use>
       </svg>
     </div>
-    <p class="hero__info visually-hidden">
+    <p class="hero__info js-hero__info">
       Search result not successful. Enter the correct movie name
     </p>
-    <div class="library__button-wrapp visually-hidden js-library__button-wrapp">
-      <button class="library__button" type="button">WATCHED</button>
-      <button class="library__button" type="button">QUEUE</button>
+    <div class="library__button-wrapp js-library__button-wrapp" data-library>
+      <button class="library__button" type="button">WATCHED Богдан напиши стилі</button>
+      <button class="library__button" type="button">для кнопок будь ласка QUEUE</button>
     </div>
   </div>
 </section>
