@@ -3,7 +3,7 @@ import teamId from '../team';
 import * as basicLightbox from 'basiclightbox' 
 import 'basiclightbox/dist/basicLightbox.min.css';
 
-// const autorsContainer = document.querySelector('a');
+const autorsContainer = document.querySelector('a');
 const btnTeam = document.querySelector('.footer-text__command');
 function autorsCardsMarkup(teamId){
     return teamId
@@ -44,7 +44,7 @@ function autorsCardsMarkup(teamId){
 .join(` `);
 }
 
-// autorsContainer.insertAdjacentHTML('beforeend', autorsCardsMarkup);
+autorsContainer.insertAdjacentHTML('beforeend', autorsCardsMarkup);
 btnTeam.addEventListener('click', modalShow);
 
 function modalShow(e){
