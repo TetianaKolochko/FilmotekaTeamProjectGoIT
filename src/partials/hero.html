@@ -17,8 +17,14 @@
       Search result not successful. Enter the correct movie name
     </p>
     <div class="library__button-wrapp js-library__button-wrapp" data-library>
-      <button class="library__button" type="button">WATCHED</button>
-      <button class="library__button" type="button">QUEUE</button>
+      <button
+        class="library__button watched-btn active"
+        data-id="${movie.id}"
+        type="button"
+      >
+        WATCHED
+      </button>
+      <button class="library__button queue-btn" type="button">QUEUE</button>
     </div>
   </div>
 </section>
