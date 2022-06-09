@@ -17,6 +17,7 @@
     align-items: center;
     padding-top: 10px;
     padding-bottom: 10px;
+    transition: margin $duration $timing;
     color:inherit;
 
     &:hover {
@@ -52,6 +53,7 @@
     align-items: center;
     margin-right: 0;
     margin-left: auto;
+    transition: margin $duration $timing;
 
     &.js-open-library {
             @media screen and (min-width:$bp-desktop) {
