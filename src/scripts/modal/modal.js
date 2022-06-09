@@ -1,5 +1,6 @@
 import { findCardId } from '../fetch.js';
 import { refs } from '../refs.js';
+import { createModalFilmCard } from './modalFilmCard.js';
 
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
@@ -12,8 +13,8 @@ function openModal(e) {
   findCardId(e.target.dataset.id)
       .then(movie => {        
       if (e.target.nodeName !== 'IMG') return;
-      const markup = `<img class="gallery__image" src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}" alt="${movie.title}" loading="lazy" width="500" />  <div class="modal-close-btn">Close</div>`;
-      const modal = basicLightbox.create(markup);
+    //   const markup = `<img class="gallery__image" src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}" alt="${movie.title}" loading="lazy" width="500" />  <div class="modal-close-btn">Close</div>`;
+      const modal = basicLightbox.create(createModalFilmCard({movie}));
 
       modal.show();
 
