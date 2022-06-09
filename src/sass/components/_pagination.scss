@@ -1,6 +1,13 @@
 .pagination {
-	margin: 40px auto 40px auto;
+	margin: 20px auto 40px auto;
+
+	@media screen and (min-width:$bp-tablet) {
+	margin: 0 auto 60px auto;
+		}
 }
+
+//вопрос по мейну, у него адаптивний нижний паддинг, как поступить с моим марджином?
+//(падинг схлопывается)
 
 .pagination__list {
 	display: flex;
