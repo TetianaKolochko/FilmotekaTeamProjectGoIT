@@ -38,7 +38,7 @@ export function getGenresToId(idArray) {
   return idArray.map(genreId => GENRES[genreId]);
 }
 
-function sliceGenres(genreArray) {
+ export function sliceGenres(genreArray) {
   if (genreArray.length > 2) {
     const slicedGenredWordArray = genreArray.slice(0, 2);
     slicedGenredWordArray.push('Other');
