@@ -19,7 +19,7 @@ export function renderMovieCardOnMainPage(filmArray) {
     const genresText = sliceGenres(genresArray);
      return html +=
         `<li class="gallery__item">
-          <a class="gallery__link">
+          <a class="gallery__link" href="">
             <img class='gallery__poster' src='https://image.tmdb.org/t/p/w500/${poster_path}' loading="lazy" alt='Poster for film ${original_title}' data-id=${id} />
             <div class="gallery__movie-details">
               <p class="movie-details__movie-name">${original_title}</p>
