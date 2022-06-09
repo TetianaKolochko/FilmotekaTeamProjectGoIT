@@ -9,7 +9,7 @@ refs.movieGallery.addEventListener('click', openModal);
 
 function openModal(e) {
   e.preventDefault();
-    console.log(e.target.dataset.id)
+    
   findCardId(e.target.dataset.id)
       .then(movie => {        
       if (e.target.nodeName !== 'IMG') return;
