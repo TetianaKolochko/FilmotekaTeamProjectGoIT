@@ -9,13 +9,13 @@ export function createModalFilmCard({ movie }) {
          <div class="modal__container">
      <button class="modal-close-btn">
      <svg class="close-icon" width="14" height="14">
-     <use href="/sprite.f14d31f7.svg/#close"></use>
+     <use href="/sprite.77e7e650.svg/#close"></use>
      </svg>
      </button>
      <div class="film__image">
      <button class="trailer__btn">
      <svg class="close__icon-trailer" width="50" height="30">
-     <use href="/sprite.f14d31f7.svg/#film"></use>
+     <use href="/sprite.77e7e650.svg/#film"></use>
      </svg>
      </button>
         <img class="image" src="https://image.tmdb.org/t/p/original/${movie.poster_path}" alt="${movie.title}" loading="lazy" width="500" />
