@@ -7,13 +7,17 @@ export function createModalFilmCard({ movie }) {
         const genresText = sliceGenres(genresArray);
         return `
          <div class="modal__container">
-     <button class="modal-close-btn">Close
-     <svg class="close-icon" widtn="30" height="30">
-     <use href="../images/sprite.svg/#icon-Vector"></use>
+     <button class="modal-close-btn">
+     <svg class="close-icon" width="14" height="14">
+     <use href="/sprite.f14d31f7.svg/#close"></use>
      </svg>
      </button>
      <div class="film__image">
-     
+     <button class="trailer__btn">
+     <svg class="close__icon-trailer" width="50" height="30">
+     <use href="/sprite.f14d31f7.svg/#film"></use>
+     </svg>
+     </button>
         <img class="image" src="https://image.tmdb.org/t/p/original/${movie.poster_path}" alt="${movie.title}" loading="lazy" width="500" />
      </div>
         <div class="film__information">
@@ -34,7 +38,7 @@ export function createModalFilmCard({ movie }) {
                   </li>
                    <li class="film__item">
                          <p class="film__details">Original title</p>
-                         <p>${movie.original_title}</p>
+                         <p class="film__details-title">${movie.original_title}</p>
                     </li>
                     <li class="film__item">
                  <p class="film__details">Genre</p>
@@ -44,15 +48,16 @@ export function createModalFilmCard({ movie }) {
               </p>
                  </li>
                      </ul>
-                     </div>
+                     
                      <div>
                      <h3 class="film__about__title">About</h3>
                      <p class="film__about__text">${movie.overview}</p>
-           </div>
+          
            <div class="film__button__wrapper">
                <button type="button" class=" film__button btn__watch" data-id="">Add to watched</button>
                <button type="button" class=" film__button btn__queue" data-id="">Add to queue</button>
-            </div>
+             </div>
+               </div>
              </div>`;
     
         
