@@ -1,16 +1,24 @@
-import { GENRES } from '../genre';
+import { GENRES } from "../genre";
+import { sliceGenres } from '../renderFilmCard';
+
 
 export function createModalFilmCard({ movie }) {
-  console.log(movie);
-  return `
-   
-     <div class="modal__container">
-     <button class="modal-close-btn">Close</button>
+        const genresArray = getGenresToId(movie.genres);
+        const genresText = sliceGenres(genresArray);
+        return `
+         <div class="modal__container">
+     <button class="modal-close-btn">
+     <svg class="close-icon" width="14" height="14">
+     <use href="/sprite.f14d31f7.svg/#close"></use>
+     </svg>
+     </button>
      <div class="film__image">
-     
-        <img class="image" src="https://image.tmdb.org/t/p/original/${
-          movie.backdrop_path
-        }" alt="${movie.title}" loading="lazy" width="500" />
+     <button class="trailer__btn">
+     <svg class="close__icon-trailer" width="50" height="30">
+     <use href="/sprite.f14d31f7.svg/#film"></use>
+     </svg>
+     </button>
+        <img class="image" src="https://image.tmdb.org/t/p/original/${movie.poster_path}" alt="${movie.title}" loading="lazy" width="500" />
      </div>
         <div class="film__information">
            
@@ -55,4 +63,10 @@ export function createModalFilmCard({ movie }) {
              </div>
                </div>
              </div>`;
+    
+        
+}
+    
+function getGenresToId(idArray) {  
+  return idArray.map(GENRES => GENRES.name);  
 }
