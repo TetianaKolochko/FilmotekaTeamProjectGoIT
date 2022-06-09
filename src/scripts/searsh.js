@@ -14,17 +14,22 @@ const DEBOUNCE_DELAY = 300;
 
 refs.searchInput.addEventListener("input",debounce(onTexterialInput,DEBOUNCE_DELAY));
 
+let checkStartSpiner = null;
+
+
 function onTexterialInput(e) {
     onHideSearchInfo()
     resetGallery();
 
-    Loading.hourglass({
-        backgroundColor: "rgba(0,0,0,0)",   
-    });
+    checkStartSpiner = true;
+    setTimeout(() => {showSpiner ()}, 300);
+
 
     let curentCountri = e.target.value.trim();
 
     if(curentCountri===""){
+        checkStartSpiner = false;
+
         Loading.remove();
         return getPopularMovieList();
     };
@@ -35,6 +40,8 @@ function onTexterialInput(e) {
 export function createListFilms (inputValue) {
 
     findWordKey(inputValue).then(inputValue=>{
+
+        checkStartSpiner = false;
 
         Loading.remove();
 
@@ -58,4 +65,20 @@ export function onHideSearchInfo() {
 
 export function onClearSearchInput () {
     refs.searchInput.value = "";
+}
+
+function showSpiner (){
+
+    if(checkStartSpiner === true){
+
+        Loading.hourglass({
+            svgColor: "rgb(255, 106, 0)",
+            backgroundColor: "rgba(0,0,0,0)", 
+             
+        });
+
+     checkStartSpiner = false;
+        
+    }
+   
 }
