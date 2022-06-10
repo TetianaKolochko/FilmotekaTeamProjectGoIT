@@ -115,6 +115,11 @@
 		margin-right: 9px;
 	}
 
+		.movie-details-wrap {
+			display: flex;
+			flex-direction: row;
+		}
+
 	.movie-details-rate {
 		display: flex;
 		width: 36px;
