@@ -47,18 +47,20 @@
 }
 
 .trailer__btn {
+
+    padding-right: 5px;
     position: absolute;
     background-color: $color-accent;
     z-index: 1;
-    width: 60px;
+    width: 50px;
     height: 35px;
     margin-top: 20px;
     margin-left: 5px;
-    align-items: center;
+   
     border: 2px solid $color-darkest;
     border-radius: 3px;
     cursor: pointer;
-
+background-image: url(../images/sprite.svg#film);
     &:hover,
     &:focus {
         background-color: $color-accent-2;
