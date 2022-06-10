@@ -108,6 +108,8 @@
 
     &::placeholder {
         color:transparent;
+        padding: 0;
+        margin: 0;
     }
 
     @media screen and (max-width:767.98px) {

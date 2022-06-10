@@ -11,7 +11,9 @@ refs.movieGallery.addEventListener('click', openModal);
 function openModal(e) {
   e.preventDefault();
 
-  if (e.target.nodeName !== 'IMG' && e.target.nodeName !== 'P' && e.target.nodeName !== 'A') return;
+  if (e.target.nodeName !== 'A') {
+    return;
+  };
     
   findCardId(e.target.dataset.id)
     .then(movie => {
