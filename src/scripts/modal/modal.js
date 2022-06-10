@@ -10,21 +10,15 @@ refs.movieGallery.addEventListener('click', openModal);
 
 function openModal(e) {
   e.preventDefault();
-
-  if (e.target.nodeName !== 'A') {
-    return;
-  };
     
   findCardId(e.target.dataset.id)
     .then(movie => {
-      console.log(e.target.nodeName);
-      console.log(movie);      
-      
-      const modal = basicLightbox.create(createModalFilmCard({ movie }));      
-
+      if (e.target.nodeName !== 'IMG') return;
+      //   const markup = `<img class="gallery__image" src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}" alt="${movie.title}" loading="lazy" width="500" />  <div class="modal-close-btn">Close</div>`;
+      const modal = basicLightbox.create(createModalFilmCard({ movie }));
+       
       modal.show();
       addWatched();
-      
       const closeBtn = document.querySelector('.modal-close-btn');
       closeBtn.addEventListener('click', closeModal);
 

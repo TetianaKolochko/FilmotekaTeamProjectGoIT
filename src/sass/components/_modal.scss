@@ -13,7 +13,7 @@
     width: 280px;
     padding: 48px 20px 41px 20px;
 
-@media screen and (min-width: 767.99px)  {
+@media screen and (min-width: 768px)  {
         display: flex;
         margin: auto;
         width: 704px;
@@ -21,7 +21,7 @@
         padding: 40px 30px;
 } 
 
-@media screen and (min-width: 1023.99px) {
+@media screen and (min-width: 1024px) {
 width: 814px;
 height: auto;
 padding-top: 74px;
@@ -41,12 +41,12 @@ padding-top: 74px;
     border-radius: 5px;
     margin-bottom: 20px;
 
-@media screen and (min-width: 767.99px) {
+@media screen and (min-width: 768px) {
         max-width: 264;
         height: auto;
     margin-right: 32px;
     }
-   @media screen and (min-width: 1023.99px) {
+   @media screen and (min-width: 1024px) {
     max-width: 375px;
     max-height: 478px;
    }
@@ -62,7 +62,7 @@ padding-top: 74px;
     margin-bottom: 20px;
     text-transform: uppercase;
 
-    @media screen and (min-width: 767.99px) {
+    @media screen and (min-width: 768px) {
         font-size: 30px;
         line-height: 1.17;
     }
@@ -80,7 +80,7 @@ padding-top: 74px;
     color: $color-middle;
     min-width: 108px;
 
-@media screen and (min-width: 767.99px) {
+@media screen and (min-width: 768px) {
         min-width: 140px;
     }
 
@@ -126,3 +126,16 @@ padding-top: 74px;
     display: flex;
 }
 
+.close__icon-trailer{
+    padding: 0px  5px 0px 10px;
+    
+}
+
+.close-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+}
