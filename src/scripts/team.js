@@ -1,78 +1,81 @@
-export const teamId = [
+
+
+
+export const teamIds = [
     {
       name: 'Женя Жменька',
       position: 'Teamlead',
-    //   img: worker_eugen_captainamerica,
+      img: '../images/Team Avengers/captainAmerica.jpeg' ,
       github: 'https://github.com/EugeneNorko',
       instagram: 'https://www.instagram.com/',
     },
     {
       name: 'Pavlovskaya Natalia',
       position: 'Scrum master',
-    //   img: wounderwoman,
+      img: '../images/Team Avengers/captainAmerica.jpeg' ,
       github: 'https://github.com/NataliaPavlovskaya',
       instagram: 'https://www.instagram.com/nata_horoshaya1/',
       },
     {
       name: 'Levkova Alina',
       position: 'Developer',
-    //   img: Catwoman,
+      img: '../images/Team Avengers/captainAmerica.jpeg' ,
       github: 'https://github.com/AlinaLevkova77',
       instagram: 'https://www.instagram.com/alichka_lev/'
     },
     {
         name: 'Koloshko Tatiana',
         position: 'Developer',
-        // img: Rogue,
+        img: '../images/Team Avengers/captainAmerica.jpeg' ,
         github: 'https://github.com/TetianaKolochko',
         instagram: 'https://www.instagram.com/tanya_kolochko/'
       },
       {
         name: 'Andrey Fedorchenko',
         position: 'Developer',
-        // img: Spider_Man,
+        img: '../images/Team Avengers/captainAmerica.jpeg' ,
         github: 'https://github.com/Andrew-GIS',
         instagram: 'https://www.instagram.com/fedorchenko.andrew/'
       },
       {
         name: 'Kriminskiy Yuriy',
         position: 'Developer',
-        // img: Deadpool,
+        img: '../images/Team Avengers/captainAmerica.jpeg' ,
         github: 'https://github.com/kriminskiy',
         instagram: 'https://www.instagram.com/kriminskiy/'
       },
       {
         name: 'Prysiazhniuk Serhii',
         position: 'Developer',
-        // img: Doctor_Strange,
+        img: '../images/Team Avengers/captainAmerica.jpeg' ,
         github: 'https://github.com/PrysiazhnukSerhii',
         instagram: 'https://www.instagram.com/prysiaznhiuk_serhii/'
       },
       {
         name: 'Borodavko Bohdan',
         position: 'Developer',
-        // img: The_Flash,
+        img: '../images/Team Avengers/captainAmerica.jpeg' ,
         github: 'https://github.com/danxczm',
         instagram: 'https://www.instagram.com/xczm.pls/'
       },
       {
         name: 'Kazymko Anastasia',
         position: 'Developer',
-        // img: Kitty_Pryde,
+        img: '../images/Team Avengers/captainAmerica.jpeg' ,
         github: 'https://github.com/Anastasiia8888',
         instagram: 'https://www.instagram.com/nastya___k_____/'
       },
       {
         name: 'Hritsyk Valentyn',
         position: 'Developer',
-        // img: Iron_Man,
+        img: '../images/Team Avengers/captainAmerica.jpeg' ,
         github: 'https://github.com/VH91',
         instagram: 'https://www.instagram.com/valentinhritsik/'
       },
       {
         name: 'Feshchenko Dmytro',
         position: 'Developer',
-        // img: Thor,
+        img: '../images/Team Avengers/captainAmerica.jpeg' ,
         github: 'https://github.com/',
         instagram: 'https://www.instagram.com/'
       },

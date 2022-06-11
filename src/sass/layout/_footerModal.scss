@@ -1,0 +1,191 @@
+.backdrop {
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    // transition: opacity 300ms var(--transition-hover),
+    //   visibility 300ms var(--transition-hover);
+    .visually-hidden {
+      .modal {
+        transform: scale(0.1) rotate(30deg);
+      }
+    }
+  }
+  .modal {
+    @media screen and (min-width: 320px) and (max-width: 449px) {
+      width: 320px;
+      height: 609px;
+    }
+    @media screen and (min-width: 450px) and (max-width: 1999px) {
+      width: 450px;
+      height: 609px;
+    }
+  
+    @media screen and (min-width: 1200px) {
+      width: 528px;
+      height: 581px;
+    }
+  
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: scale(1) rotate(0) translate(-50%, -50%);
+    // transition: transform var(--transition-duration) var(--transition-hover);
+    &__close {
+      position: absolute;
+      padding: 0%;
+      top: 8px;
+      right: 8px;
+      width: 30px;
+      height: 30px;
+      background: #000;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    //   transition: fill var(--transition-duration) var(--transition-hover);
+    //   &:hover,
+    //   &:focus {
+    //     fill: 00;
+    //   }
+    }
+  }
+
+  .worker-list {
+    @media screen and (min-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -15px;
+    }
+    // display: flex;
+    // flex-wrap: wrap;
+}
+.worker-link {
+    display: block;
+    text-decoration: none;
+    list-style: none;
+    font-style: inherit;
+    height: 100%;
+    // transition: box-shadow var(--animation);  
+    &:hover,
+    &:focus{
+    cursor: pointer;
+    box-shadow: 1px 4px 6px 0px #00000029, 
+    0px 4px 4px 0px #0000000F,
+    0px 1px 1px 0px #0000001F; 
+    }
+    @media screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        // height: 404px;  
+    }  
+    @media screen and (min-width: 1200px) {
+        height: 100%;  
+    }  
+}
+.worker-item {
+    padding-bottom: 0px;
+    margin-bottom: 30px;
+    &:last-child {
+        margin-bottom: 0px;
+    }
+    @media screen and (min-width: 768px) {
+        flex-basis: calc( 100% / 2 - 30px);
+        width: 354px;
+        margin:15px;
+    }
+    @media screen and (min-width: 1200px) {
+        flex-basis: calc( 100% / 3 - 30px);
+        // margin-right: 30px;
+        margin-bottom: 30px;
+        width: 370px; 
+        &:nth-child(3n) {
+         margin-right: 0px;
+        }
+        &:nth-last-child(-n+3){
+            margin-bottom: 0px;
+        }
+    } 
+}
+.worker-top-text {
+    position: absolute;
+    color: firebrick;
+
+
+    font-size: 18px;
+    line-height: 1.55;
+    letter-spacing: 0.03em;
+    font-weight: 400;
+    padding-left: 24px;
+    padding-top: 77px;
+    padding-bottom: 77px;
+    padding-right: 24px;
+    background-color: beige;
+    width: 100%;
+    height: 354px;
+    transform: translateY(100%);
+    // transition: transform var(--animation);
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    left: 0;  
+    overflow-y: scroll;
+    // .project-link:hover &,
+    // .project-link:focus & {
+    //     transform: translateY(0);
+    // } 
+    @media screen and (min-width: 768px){
+        padding-bottom: 49px;
+        padding-top: 49px;
+    }
+    @media screen and (min-width: 1200px) {
+        padding-bottom: 63px;
+        padding-top: 63px;
+    }  
+}
+
+.worker-tittle {
+    color: black;
+    font-size: 18px;
+    line-height: 2;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+}
+.worker-text {
+    font-family: Roboto, sans-serif ;
+    font-size: 16px;
+    line-height: 1.87;
+    letter-spacing: 0.03em;
+    font-weight: 400;
+    
+    color: hotpink;
+}
+.worker-item-wrap {
+    position: relative;
+    overflow: hidden; 
+}
+.worker-card {
+    padding-top: 20px;
+    padding-left: 24px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    border: 1px solid #EEEEEE;
+    @media screen and (min-width: 768px){
+        flex-grow: 1;
+    }
+}
+
+// .worker__title {
+//     color: #000;
+//     font-weight: 500;
+//     font-size: 12px;
+//     line-height: 16px;
+// }
+// .worker__position {
+//     color: #000;
+//     font-weight: 500;
+//     font-size: 12px;
+//     line-height: 16px;
+// }

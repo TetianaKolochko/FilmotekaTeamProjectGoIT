@@ -1,104 +1,67 @@
-import{ teamId }  from '../team';
+import { teamIds }  from '../team';
+import { refs } from '../refs.js';
 
-import * as basicLightbox from 'basiclightbox' 
-import 'basiclightbox/dist/basicLightbox.min.css';
+const btnTeam = document.querySelector('.footer_open');
 
-const btnTeam = document.querySelector('.footer-text__command');
-const autorsCardsMarkup = teamId
-.map(({ name, position, github, instagram }) => {
-        return `
-        <li class="worker__item">
-              <div class="worker__card">
-                <h2 class="worker__title">${name}</h2>
-                <div class="worker__icons">
-                <p class = "worker__position">${position}</p>  
-                <a class="worker__icon" href="${github}">
-                          <svg width="35" height="35">
-                            <use href="#github"></use>
-                          </svg>
-                        </a>
-                  <a class="workers__icon" href="${instagram}">
-                          <svg width="35" height="35">
-                            <use href="#instagram"></use>
-                          </svg>
-                        </a>
-                </div>
-            </div>
+(() => {
+    const refs = {
+      openModalBtn: document.querySelector('[data-modal-open]'),
+      closeModalBtn: document.querySelector('[data-modal-close]'),
+      modal: document.querySelector('[data-modal]'),
+    };
+  
+    refs.openModalBtn.addEventListener('click', toggleModal);
+    refs.closeModalBtn.addEventListener('click', toggleModal);
+  
+    function toggleModal() {
+      refs.modal.classList.toggle('visually-hidden');
+    }
+  })();
+
+function renderTeamMember(teamIds) {
+    console.log('render :>> ');
+    const markup = teamIds.reduce((html, member) => {
+      const { name, position, github, instagram, img } = member;
+      
+       return html +=
+          `<li class="worker-item">
+          <a href="" class="worker-link ">
+            <div class="worker-item-wrap">
+           <img src="${img}" alt="member image" width="10px" height="10px"/>
+           <p class="worker-top-text">Технокряк это современная площадка распространения коронавируса. Компании используют эту платформу для цифрового шпионажа и атак на защищённые сервера конкурентов</p>
+           </div>
+            <div class="worker-card">
+                  <h2 class="worker-title">${name}</h2>
+                  <p class = "worker-text">${position}</p> 
+                  <div class="worker__icons">
+                  <a class="worker__icon" href="${github}">
+                  <img src="/src/images/Team Avengers/CatWoman.jpeg" width="35" height="35" />
+                           
+                          </a>
+                    <a class="workers__icon" href="${instagram}">
+                            <svg width="35" height="35">
+                              <use href="./images/sprite.svg#icon-arrow-right"></use>
+                            </svg>
+                          </a>
+                  </div>
+              </div>
+              </a>
           </li>`
-})
-.join(``);
+      }, "");
+      return refs.workerList.insertAdjacentHTML('beforeend', markup);
+  }
 
-btnTeam.addEventListener('click', modalShow);
+//   <svg width="35" height="35">
+//   <use href="./images/sprite.svg#icon-arrow-right"></use>
+// </svg>
 
-function modalShow(e){
-    e.preventDefault();
-    
-    const instance = basicLightbox.create(autorsCardsMarkup);
-    instance.show();
+  btnTeam.addEventListener('click', onClickBtn);
 
-    closeModal(e);
-}
+  function onClickBtn (){
+      console.log('click Open :>> ');
+      const team = teamIds;
+      renderTeamMember(team);
+  }
 
-function closeModal(e) {
-    if (e.code === 'Escape') {
-      modal.close();
-      window.removeEventListener('keydown', closeModal);
-    } 
-}
-
-
-
-
-
-
-// function autorsCardsMarkup(teamId){
-//     return teamId
-//     .map(({ name, position, github, instagram }) => {
-//      return `
-//     <li class="worker__item">
-//         <div class="worker__card">
-//         <h2 class="worker__title">${name}</h2>
-//         <div class="worker__icons">
-//             ${
-//                 position
-//                   ? ` <a class="worker__icon" href="${position}"></a>`
-//                   : ''
-//               }
-//               ${
-//                 github
-//                   ? ` <a class="worker__icon" href="${github}">
-//                       <svg width="35" height="35">
-//                         <use href="${links}#github"></use>
-//                       </svg>
-//                     </a>`
-//                   : ''
-//               }
-//               ${
-//                 instagram
-//                   ? ` <a class="workers__icon" href="${instagram}">
-//                       <svg width="35" height="35">
-//                         <use href="${links}#instagram"></use>
-//                       </svg>
-//                     </a>`
-//                   : ''
-//               }
-//             </div>
-//         </div>
-//       </li>`;
-
-// })
-// .join(` `);
-// }
-
-  // if(modal.visible()) {
-    //     window.addEventListener(`keydown`, (event) => {
-    //         console.log(event);
-    //         if(event.code === `Escape`) {
-    //             modal.close();
-    //         };
-    //     });
-    // };
-
-    // const autorsContainer = document.querySelector('#js_team_modal');
 
 
