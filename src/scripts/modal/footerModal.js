@@ -49,7 +49,9 @@ function renderTeamMember(teamIds) {
           </li>`
       }, "");
       return refs.workerList.insertAdjacentHTML('beforeend', markup);
+      
   }
+  
 
 //   <svg width="35" height="35">
 //   <use href="./images/sprite.svg#icon-arrow-right"></use>
@@ -61,7 +63,13 @@ function renderTeamMember(teamIds) {
       console.log('click Open :>> ');
       const team = teamIds;
       renderTeamMember(team);
+      
+      
   }
+
+
+
+  
 
 
 
