@@ -2,6 +2,7 @@ import { findCardId } from '../fetch.js';
 import { refs } from '../refs.js';
 import { createModalFilmCard } from './modalFilmCard.js';
 import addWatched from '../addWatched.js';
+import movieTrailer from './modalTrailer.js';
 
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
@@ -17,13 +18,14 @@ function openModal(e) {
     
   findCardId(e.target.dataset.id)
     .then(movie => {
-      console.log(e.target.nodeName);
-      console.log(movie);      
+      //console.log(e.target.nodeName);
+      //console.log(movie);      
       
       const modal = basicLightbox.create(createModalFilmCard({ movie }));      
   
       modal.show();
       addWatched();
+      movieTrailer();
     
       const closeBtn = document.querySelector('.modal-close-btn');
       closeBtn.addEventListener('click', closeModal);
