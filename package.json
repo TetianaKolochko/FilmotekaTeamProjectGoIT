@@ -24,6 +24,7 @@
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.5",
     "nprogress": "^0.2.0",
+    "siema": "^1.5.1",
     "simple-slider": "^1.0.1"
   },
   "devDependencies": {

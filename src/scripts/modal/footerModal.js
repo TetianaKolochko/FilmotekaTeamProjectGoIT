@@ -1,6 +1,8 @@
 import { teamIds }  from '../team';
 import { refs } from '../refs.js';
 
+import Siema from 'siema';
+
 const btnTeam = document.querySelector('.footer_open');
 
 (() => {
@@ -27,7 +29,7 @@ function renderTeamMember(teamIds) {
           `<li class="worker-item">
           <a href="" class="worker-link ">
             <div class="worker-item-wrap">
-           <img src="${img}" alt="member image" width="10px" height="10px"/>
+           <img src="${img}" alt="member image" width="8px" height="8px"/>
            <p class="worker-top-text">Технокряк это современная площадка распространения коронавируса. Компании используют эту платформу для цифрового шпионажа и атак на защищённые сервера конкурентов</p>
            </div>
             <div class="worker-card">
@@ -51,11 +53,6 @@ function renderTeamMember(teamIds) {
       return refs.workerList.insertAdjacentHTML('beforeend', markup);
       
   }
-  
-
-//   <svg width="35" height="35">
-//   <use href="./images/sprite.svg#icon-arrow-right"></use>
-// </svg>
 
   btnTeam.addEventListener('click', onClickBtn);
 
@@ -67,9 +64,32 @@ function renderTeamMember(teamIds) {
       
   }
 
+  const mySiema = new Siema({
+    selector: '.siema_one',
+    duration: 200,
+    easing: 'ease-out',
+    perPage: 1,
+    startIndex: 0,
+    draggable: true,
+    multipleDrag: true,
+    threshold: 20,
+    loop: false,
+    rtl: false,
+    onInit: () => {},
+    onChange: () => {},
+  });
+  
+    document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
+    document.querySelector('.next').addEventListener('click', () => mySiema.next());
+
 
 
   
 
 
 
+  
+
+//   <svg width="35" height="35">
+//   <use href="./images/sprite.svg#icon-arrow-right"></use>
+// </svg>
