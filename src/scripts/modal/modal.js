@@ -21,10 +21,10 @@ function openModal(e) {
       console.log(movie);      
       
       const modal = basicLightbox.create(createModalFilmCard({ movie }));      
-
+  
       modal.show();
       addWatched();
-      
+    
       const closeBtn = document.querySelector('.modal-close-btn');
       closeBtn.addEventListener('click', closeModal);
 
