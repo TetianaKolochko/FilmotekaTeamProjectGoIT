@@ -1,5 +1,6 @@
 .backdrop {
-    display:none;
+    opacity:0;
+    pointer-events: none;
     width: 100vw;
     height: 100vh;
     background-color: rgba(11, 11, 11, 0.732);
@@ -8,32 +9,29 @@
     left: 0%;
     transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    // .visually-hidden {
-    //   .modal {
-    //     transform: scale(0.1) rotate(30deg);
-    //   }
-    // }
     &.shown {
-        display:block;
+        opacity: 1;
+        pointer-events: all;
     }
   }
+
   .modal {
     @media screen and (min-width: 320px) and (max-width: 449px) {
       width: 320px;
       height: 609px;
     }
     @media screen and (min-width: 450px) and (max-width: 1999px) {
-      width: 600px;
+      width: 450px;
       height: 609px;
     }
   
-    @media screen and (min-width: 1200px) {
-        width: 800px;
+    @media screen and (min-width: 767.8px) {
+        width: 670px;
         height: 610px;
     }
     
-    background-color: #e08d52b8;
-    border-radius: 4px;
+    background-color: rgb(255, 128, 0);
+    border-radius: 20px;
     padding: 40px;
     position: absolute;
     top: 50%;
@@ -42,15 +40,17 @@
     transform: scale(1) rotate(0) translate(-50%, -50%);
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &__close {
-      position: absolute;
-      padding: 0%;
-      top: 8px;
-      right: 8px;
-      width: 30px;
-      height: 30px;
-      background: #000;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 30px;
+        height: 30px;
+        background-color: transparent;
+        border: 1px solid #0000001A;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center
     //   &:hover,
     //   &:focus {
     //     fill: 00;
@@ -65,74 +65,45 @@
     height: 100%;
     border-radius: 20px;
     padding-bottom: 0px;
-    margin-bottom: 30px;
+    // margin-bottom: 30px;
+
+    text-align: center;
+    
+    
 
 }
-// .worker-top-text {
-//     position: absolute;
-//     color: firebrick;
+.worker-card {
+    padding: 20px;
+    border: 1px solid #EEEEEE;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
 
+.button__modal {
+    display: flex;
+    justify-content: space-between;
+}
 
-//     font-size: 10px;
-//     line-height: 1.55;
-//     letter-spacing: 0.03em;
-//     font-weight: 400;
-//     padding-left: 24px;
-//     padding-top: 77px;
-//     padding-bottom: 77px;
-//     padding-right: 24px;
-//     background-color: beige;
-//     width: 100%;
-//     height: 100px;
-//     transform: translateY(100%);
-//     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-//     overflow: auto;
-//     position: absolute;
-//     top: 0;
-//     left: 0;  
-//     overflow-y: scroll;
-//     .worker-link:hover &,
-//     .worker-link:focus & {
-//         transform: translateY(0);
-//     } 
-//     @media screen and (min-width: 768px){
-//         padding-bottom: 49px;
-//         padding-top: 49px;
-//     }
-//     @media screen and (min-width: 1200px) {
-//         padding-bottom: 63px;
-//         padding-top: 63px;
-//     }  
-// }
+.next{
+width: 30px;
+height: 30px;
+border-radius: 50%;
+background-color: #eeeeee00;
+}
 
-// .worker-tittle {
-//     color: black;
-//     font-size: 10px;
-//     line-height: 2;
-//     letter-spacing: 0.06em;
-//     font-weight: 700;
-// }
-// .worker-text {
-//     font-family: Roboto, sans-serif ;
-//     font-size: 16px;
-//     line-height: 1.87;
-//     letter-spacing: 0.03em;
-//     font-weight: 400;
+.worker__img {
+border-radius: 50%;
+}
+
+.modal-close-icon {
+    position: relative;
+    // top: 10px;
+    // right: 14px; 
+    // display: flex;
+    // justify-content: flex-end;
     
-//     color: hotpink;
-// }
-// .worker-item-wrap {
-//     position: relative;
-//     overflow: hidden; 
-// }
-// .worker-card {
-//     padding-top: 20px;
-//     padding-left: 24px;
-//     padding-bottom: 20px;
-//     padding-right: 20px;
-//     border: 1px solid #EEEEEE;
-//     @media screen and (min-width: 768px){
-//         flex-grow: 1;
-//     }
-// }
+
+}
 

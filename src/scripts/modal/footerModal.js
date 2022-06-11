@@ -31,11 +31,11 @@ refsModal.closeModalBtn.addEventListener('click', onCloseModal);
 function renderTeamMember(teamIds) {
     console.log('render :>> ');
     const markup = teamIds.reduce((html, member) => {
-      const { name, position, github, instagram, img } = member;
+      const { name, position, github, instagram, img, text} = member;
       
        return html +=
-          ` <div class="worker__list">
-            <img src="${img}" alt="member image" width="50px" height="50px"/>
+          ` <div class="worker__item">
+            <img src="${img}" alt="member image" class="worker__img" width="250px" height="250px"/>
             <div class="worker-card">
                   <h2 class="worker-title">${name}</h2>
                   <p class = "worker-text">${position}</p> 
@@ -49,7 +49,9 @@ function renderTeamMember(teamIds) {
                         <svg width="35" height="35">
                               <use href="./images/sprite.svg#icon-arrow-right"></use>
                         </svg>
-                          </a>
+                          </a> 
+                        <p class="worker-text">${text}</p>     
+                </div>
                 </div>
                 </div>`
       }, "");
@@ -62,15 +64,15 @@ function onOpenModal(e) {
 
     const team = teamIds;
     renderTeamMember(team);
+    refsModal.body.addEventListener('keydown', onEscCloseModal);
+    refsModal.modal.addEventListener('click', onBackdropCloseModal);
     const mySiema = new Siema(setting);
-  
-        refsModal.modal.classList.add('shown');
-        refsModal.body.addEventListener('keydown', onEscCloseModal);
-        refsModal.modal.addEventListener('click', onBackdropCloseModal);
-      
+    document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
+    document.querySelector('.next').addEventListener('click', () => mySiema.next());
+    refsModal.modal.classList.add('shown');
   }
   
-export function onCloseModal ()  {
+function onCloseModal ()  {
       refsModal.modal.classList.remove('shown');
       refsModal.body.removeEventListener('Keydown', onEscCloseModal);
       refsModal.modal.removeEventListener('click', onBackdropCloseModal);
