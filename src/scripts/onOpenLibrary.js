@@ -77,5 +77,5 @@ function deleteActiveLink() {
 }
 
 function onLiblaryClick() {
-  getWatchedMovie();
+  getWatchedMovie('watched');
 }
