@@ -12,4 +12,6 @@ export const refs = {
     movieGallery: document.querySelector('.js-gallery'),
     changedElementsToOpenLibrary: document.querySelectorAll('[data-library]'),
     libraryBtn: document.querySelector('[data-libraryPage]'),
+    watchedBtn: document.querySelector('.watched-btn'),
+    removeBtn: document.querySelector('.remove-btn'),
 }

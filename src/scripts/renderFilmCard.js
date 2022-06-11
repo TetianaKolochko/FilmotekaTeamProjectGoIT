@@ -50,11 +50,20 @@ export function renderWatchedMovie(filmObject) {
                 <div class="movie-details-rate">${vote_average}</div>
               </div>
             </div>
+            
           </a>
+          <button type="button" class="remove-btn">
+          <svg class="close-icon" width="14" height="14">
+            <path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 23.467l14.933-14.933"></path>
+          </button>
         </li>`},"");
     
     return refs.movieGallery.insertAdjacentHTML('beforeend', markup);
 }
+
+// <svg class="close-icon">
+            //   <use href="/src/images/sprite.svg#icon-close"></use>
+            // </svg>
 
 export function getGenresToId(idArray) {
   return idArray.map(genreId => GENRES[genreId]);

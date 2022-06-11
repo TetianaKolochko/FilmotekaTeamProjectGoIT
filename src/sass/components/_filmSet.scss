@@ -18,6 +18,7 @@
 	}
 
 	.gallery__item {
+		position: relative;
 		height: 100%;
 		width: 280px;
 		margin-right: auto;
@@ -130,4 +131,38 @@
 		border-radius: 5px;
 		font-size: 12px;
 		line-height: 14px;
+	}
+
+	.remove-btn{
+		position: absolute;
+		border-radius: 50%;
+		z-index: 2;
+		opacity: 0.5;
+			top: 10px;
+			right: 15px;
+			display: inline-flex;
+			padding: 0;
+			width: 40px;
+			height: 40px;
+			margin-left: auto;
+			justify-content: center;
+			align-items: center;
+			border: none;
+			cursor: pointer;
+			transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+		
+			&:hover,
+			&:focus {
+				background-color: rgba(255, 107, 1, 0.879);
+				fill: color-accent;
+				transform: scale(1.25);
+
+			}
+	}
+
+	.close-icon {
+		fill: antiquewhite;
+		width: 25px;
+		height: 25px;
+		z-index: 4;
 	}

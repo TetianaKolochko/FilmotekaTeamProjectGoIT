@@ -12,6 +12,15 @@ import {
 refs.headerNav.addEventListener('click', onChangePage);
 refs.logo.addEventListener('click', onLogoClick);
 refs.libraryBtn.addEventListener('click', onLiblaryClick);
+refs.watchedBtn.addEventListener('click', onWatchedClick);
+refs.removeBtn.addEventListener('click', removeCardFromList);
+
+function removeCardFromList(e) {
+  const li = e.target.parentElement.parentElement;
+  li.remove();
+  // closest('li').remove();
+  console.log('removed :>>');
+}
 
 function onChangePage(e) {
   e.preventDefault();
@@ -77,5 +86,9 @@ function deleteActiveLink() {
 }
 
 function onLiblaryClick() {
+  getWatchedMovie('watched');
+}
+
+function onWatchedClick() {
   getWatchedMovie('watched');
 }
