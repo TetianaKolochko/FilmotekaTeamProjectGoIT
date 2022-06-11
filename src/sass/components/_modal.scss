@@ -30,7 +30,7 @@ padding-top: 74px;
 }
 
 .image {
-    position: relative;
+    // position: relative;
     margin-right: auto;
     margin-left: auto;
     display: block;
@@ -126,11 +126,12 @@ padding-top: 74px;
 }
 
 .close__icon-trailer{
-     padding: 0px  5px 0px 10px;
+    
+     padding-left:5px ;
      color: $color-accent;
      display: inline-block;
-     width: 100px;
-     height: 40px;
+     width: 45px;
+     height: 30px;
      stroke-width: 0;
      stroke: currentColor;
      fill: currentColor;

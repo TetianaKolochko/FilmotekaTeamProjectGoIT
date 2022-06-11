@@ -8,11 +8,7 @@ export function createModalFilmCard({ movie }) {
     return `
          <div class="modal__container">
      <div class="film__image">
-     <button class="trailer__btn">Watch trailer
-     <svg class="close__icon-trailer" width="50" height="50">
-     
-       </svg>
-     </button>
+    
         <img class="image" src="https://image.tmdb.org/t/p/original/${movie.poster_path}" alt="${movie.title}" loading="lazy" width="500" />
      </div>
         <div class="film__information">
@@ -44,6 +40,11 @@ export function createModalFilmCard({ movie }) {
                  </li>
                      </ul>
                      <div>
+                      <button class="trailer__btn">Trailer
+      <svg class="close__icon-trailer" width="20" height="20">
+    <path fill="#ffffff" d="M6 4l20 12-20 12z"></path>
+        </svg>
+     </button>
                      <h3 class="film__about__title">About</h3>
                      <p class="film__about__text">${movie.overview}</p>
           
@@ -52,7 +53,7 @@ export function createModalFilmCard({ movie }) {
                <button type="button" class=" film__button btn__queue" data-id="">Add to queue</button>
              </div>
               <button class="modal-close-btn">
-     <svg class="close-icon" width="100" height="100">
+     <svg class="close-icon" width="20" height="20">
  <path  stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933"></path>
 <path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 23.467l14.933-14.933"></path>
      </svg>
