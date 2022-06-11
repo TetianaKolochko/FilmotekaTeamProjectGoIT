@@ -8,9 +8,9 @@ export function createModalFilmCard({ movie }) {
     return `
          <div class="modal__container">
      <div class="film__image">
-     <button class="trailer__btn">
+     <button class="trailer__btn">Watch trailer
      <svg class="close__icon-trailer" width="50" height="50">
-     <path d="M0 4v24h32v-24h-32zM6 26h-4v-4h4v4zM6 18h-4v-4h4v4zM6 10h-4v-4h4v4zM24 26h-16v-20h16v20zM30 26h-4v-4h4v4zM30 18h-4v-4h4v4zM30 10h-4v-4h4v4zM12 10v12l8-6z"></path>
+     
        </svg>
      </button>
         <img class="image" src="https://image.tmdb.org/t/p/original/${movie.poster_path}" alt="${movie.title}" loading="lazy" width="500" />
@@ -39,11 +39,10 @@ export function createModalFilmCard({ movie }) {
                  <p class="film__details">Genre</p>
                  <p class="film__info">
               <span>${genresText}</span>
-                                                                              
+                                                                           
               </p>
                  </li>
                      </ul>
-                     
                      <div>
                      <h3 class="film__about__title">About</h3>
                      <p class="film__about__text">${movie.overview}</p>
@@ -52,12 +51,10 @@ export function createModalFilmCard({ movie }) {
                <button type="button" class=" film__button btn__watch" data-id="${movie.id }">Add to watched</button>
                <button type="button" class=" film__button btn__queue" data-id="">Add to queue</button>
              </div>
-              <button class="modal-close-btn">close
-     <svg class="close-icon" width="20" height="20">
- 
-<path fill="#ff6b08" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933"></path>
+              <button class="modal-close-btn">
+     <svg class="close-icon" width="100" height="100">
+ <path  stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933"></path>
 <path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 23.467l14.933-14.933"></path>
-
      </svg>
      </button>
                </div>

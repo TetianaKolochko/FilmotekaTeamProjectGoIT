@@ -26,7 +26,6 @@ width: 814px;
 height: auto;
 padding-top: 74px;
 
-
 }
 }
 
@@ -36,24 +35,24 @@ padding-top: 74px;
     margin-left: auto;
     display: block;
 
-    max-width: 240px;
-    height: 356px;
+    max-width: 254px;
+    height: auto;
     border-radius: 5px;
     margin-bottom: 20px;
 
-@media screen and (min-width: 768px) {
-        max-width: 264;
-        height: auto;
-    margin-right: 32px;
-    }
-   @media screen and (min-width: 1024px) {
-    max-width: 375px;
-    max-height: 478px;
-   }
 }
 
 .film__information {
     text-align: start;
+
+@media screen and (min-width: 768px) {
+    margin-left: 32px;
+    
+    }
+  @media screen and (min-width: 1024px) {
+      margin-left: 68px;
+      max-width: 375px;
+  }
 }
 
 .film__title {
@@ -127,14 +126,22 @@ padding-top: 74px;
 }
 
 .close__icon-trailer{
-    padding: 0px  5px 0px 10px;
-    
+     padding: 0px  5px 0px 10px;
+     color: $color-accent;
+     display: inline-block;
+     width: 100px;
+     height: 40px;
+     stroke-width: 0;
+     stroke: currentColor;
+     fill: currentColor;
+      
+   
 }
 
 .close-icon {
     display: inline-block;
-    width: 1em;
-    height: 1em;
+    width: 30px;
+    height: 30px;
     stroke-width: 0;
     stroke: currentColor;
     fill: currentColor;
