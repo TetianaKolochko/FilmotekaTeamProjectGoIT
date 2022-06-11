@@ -1,6 +1,7 @@
 import { refs } from './refs.js';
 import { resetGallery } from './resetGallery.js';
 import { getPopularMovieList } from './renderFilmCard.js';
+import { getWatchedMovie } from './addWatched';
 
 import {
   createListFilms,
@@ -10,6 +11,7 @@ import {
 
 refs.headerNav.addEventListener('click', onChangePage);
 refs.logo.addEventListener('click', onLogoClick);
+refs.libraryBtn.addEventListener('click', onLiblaryClick);
 
 function onChangePage(e) {
   e.preventDefault();
@@ -72,4 +74,8 @@ function deleteActiveLink() {
       link.classList.remove('header-nav__link--active');
     }
   });
+}
+
+function onLiblaryClick() {
+  getWatchedMovie('watched');
 }

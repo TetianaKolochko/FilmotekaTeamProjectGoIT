@@ -1,4 +1,7 @@
 import { load, save, remove } from '../scripts/localStorageApi.js';
+import { renderWatchedMovie } from './renderFilmCard';
+import { resetGallery } from '../scripts/resetGallery.js';
+import { findCardId } from './fetch';
 
 const addWatched = () => {
   const btn = document.querySelector('.modal__container .btn__watch');
@@ -21,3 +24,41 @@ const addWatched = () => {
   });
 };
 export default addWatched;
+
+// export function getWatchedMovie() {
+//   const getIdArray = localStorage.getItem('watched');
+//   const parsedIdArray = JSON.parse(getIdArray);
+//   if (getIdArray) {
+//     resetGallery();
+//     return parsedIdArray.map((filmId) => {
+//       findCardId(filmId).then(filmObj => {
+//         console.log('Whatch object :>> ');
+//         console.log(filmObj);
+//         const filmArr = [filmObj]
+//         console.log('Film Arr :>> ');
+//         console.log(filmArr);
+//         return renderWatchedMovie(filmArr);
+//       })
+//     })
+//   }
+// }
+
+
+export function getWatchedMovie(moviesIds) {
+  const localStorageFile = load(moviesIds);
+  console.log('-------------------------------------------- :>>');
+  resetGallery();
+  if (localStorageFile) {
+    
+    return localStorageFile.map((filmId) => {
+      findCardId(filmId).then(filmObj => {
+        // console.log('Whatch object :>> ');
+        console.log(filmObj);
+        const filmArr = [filmObj]
+        // console.log('Film Arr :>> ');
+        console.log(filmArr);
+        return renderWatchedMovie(filmArr);
+      })
+    })
+  }
+}
