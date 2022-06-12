@@ -52,27 +52,24 @@
         display: flex;
         align-items: center;
         justify-content: center
-    //   &:hover,
-    //   &:focus {
-    //     fill: 00;
-    //   }
     }
 
   }
 
-.worker__list {
+  .worker__list {
     background-color: white;
     width: 100%;
-  
+
     border-radius: 20px;
     padding-bottom: 0px;
-    // margin-bottom: 30px;
 
-    text-align: center;}
+    text-align: center;
+}
     
 .worker-positoin {
     margin: 10px;
 }
+
 .worker-card {
     display: flex;
     flex-direction: column;
@@ -86,29 +83,29 @@
     margin-bottom: 15px;
 }
 
-.next{
-width: 35px;
-height: 35px;
-border-radius: 50%;
-background-color: #eeeeee00;
+.next {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #eeeeee00;
+    &:hover,
+    &:focus {
+        box-shadow: 0 0 5px 5px rgba(255, 107, 1, 0.63);
+        transform: scale(1.03);
+    }
 }
 
-.next:hover,
-.next:focus {
- box-shadow: 0 0 5px 5px rgba(255, 107, 1, 0.63);
- transform: scale(1.03);
-}
+.prev {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #eeeeee00;
+    &:hover,
+    &:focus {
+        box-shadow: 0 0 5px 5px rgba(255, 107, 1, 0.63);
+        transform: scale(1.03);
 
-.prev{
-width: 35px;
-height: 35px;
-border-radius: 50%;
-background-color: #eeeeee00;
-}
-.prev:hover,
-.prev:focus {
- box-shadow: 0 0 5px 5px rgba(255, 107, 1, 0.63);
- transform: scale(1.03);
+    }
 }
 
 .modal__close:hover,
@@ -116,12 +113,13 @@ background-color: #eeeeee00;
  box-shadow: 0 0 5px 5px rgba(255, 107, 1, 0.63);
  transform: scale(1.03);
 }
-
-
+    
 .worker__img {
-border-radius: 50%;
-box-shadow: 0 0 100px 20px rgba(160, 101, 6, 0.787);
-background-size: cover;
+    margin-bottom: 20px;
+
+    border-radius: 50%;
+    box-shadow: 0 0 100px 20px rgba(160, 101, 6, 0.787);
+    background-size: cover;
 }
 
 .modal-close-icon {
@@ -138,10 +136,10 @@ background-size: cover;
     border-radius: 50%;
 }
 
-.goit-logo {
- position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+// .goit-logo {
+//     position: absolute;
+//        display: flex;
+//        justify-content: center;
+//        align-items: center;
+// }
 
