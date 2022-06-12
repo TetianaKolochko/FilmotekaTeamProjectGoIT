@@ -12,4 +12,5 @@ export const refs = {
     movieGallery: document.querySelector('.js-gallery'),
     changedElementsToOpenLibrary: document.querySelectorAll('[data-library]'),
     libraryBtn: document.querySelector('[data-libraryPage]'),
+    queueBtn:document.querySelector('[data-queue]'),
 }

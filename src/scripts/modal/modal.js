@@ -2,6 +2,7 @@ import { findCardId } from '../fetch.js';
 import { refs } from '../refs.js';
 import { createModalFilmCard } from './modalFilmCard.js';
 import addWatched from '../addWatched.js';
+import addQueue from '../addQueue.js';
 
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
@@ -24,6 +25,7 @@ function openModal(e) {
 
       modal.show();
       addWatched();
+      addQueue();
       
       const closeBtn = document.querySelector('.modal-close-btn');
       closeBtn.addEventListener('click', closeModal);

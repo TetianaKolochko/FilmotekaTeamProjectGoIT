@@ -61,7 +61,9 @@ export function createModalFilmCard({ movie }) {
                <button type="button" class=" film__button btn__watch" data-id="${
                  movie.id
                }">Add to watched</button>
-               <button type="button" class=" film__button btn__queue" data-id="">Add to queue</button>
+               <button type="button" class=" film__button btn__queue" data-id="${
+                 movie.id
+               }">Add to queue</button>
              </div>
                </div>
              </div>`;
