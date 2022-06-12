@@ -21,6 +21,11 @@ export function popularFilm (page=1){
    return fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${key}&page=${page}`).then(respons=>respons.json())
 }
 
+//------ Пошук трейлера по ід---
+
+export function findTrailer (idCard){
+   return fetch(`https://api.themoviedb.org/3/movie/${idCard}/videos?api_key=${key}&language=en-US`).then(respons=>respons.json())
+}
 
 // ------- Запити  для рендеренга розмітки 
 
