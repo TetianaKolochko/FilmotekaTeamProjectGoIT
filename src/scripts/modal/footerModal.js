@@ -35,19 +35,19 @@ function renderTeamMember(teamIds) {
       
        return html +=
           ` <div class="worker__item">
-            <img src="${img}" alt="member image" class="worker__img" width="250px" height="250px"/>
+            <img src="${img}" alt="member image" class="worker__img" width="350px" height="375px"/>
             <div class="worker-card">
                   <h2 class="worker-title">${name}</h2>
-                  <p class = "worker-text">${position}</p> 
+                  <p class = "worker-positoin">${position}</p> 
                   <div class="worker__icons">
                     <a class="worker__icon" href="${github}">
-                        <svg width="35" height="35">
-                              <use href="./images/sprite.svg#icon-arrow-right"></use>
+                        <svg width="50" height="50">
+                              <use href="href="./images/sprite.svg#icon-github""></use>
                         </svg>
                     </a>
                     <a class="workers__icon" href="${instagram}">
-                        <svg width="35" height="35">
-                              <use href="./images/sprite.svg#icon-arrow-right"></use>
+                        <svg width="50" height="50">
+                              <use href="./images/sprite.svg#icon-instagram"></use>
                         </svg>
                           </a> 
                         <p class="worker-text">${text}</p>     

@@ -34,14 +34,12 @@ footer {
     margin-right: 10px;
     margin-left: 10px;
     margin-top: 12px;
-    animation: .5s linear 1s infinite alternate slidein;
-
+    
     @media screen and (min-width: $bp-tablet) {
         height: 12.88px;
         margin-top: 0px;
     }
 }
-
 .footer-text__command {
     display: inline-block;
     color: $color-dark;
