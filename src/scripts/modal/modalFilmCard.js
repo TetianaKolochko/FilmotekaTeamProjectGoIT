@@ -5,12 +5,17 @@ import { GENRES } from "../genre";
 export function createModalFilmCard({ movie }) {
    
     const genresArray = getGenresToId(movie.genres);
-    const genresText = addGenres(genresArray);
+  const genresText = addGenres(genresArray);
+  let isPoster = `https://image.tmdb.org/t/p/original/${movie.poster_path}`;
+
+    if (!movie.poster_pathh) {
+      isPoster = `https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png`;
+    }
     return `
          <div class="modal__container">
      <div class="film__image">
     
-        <img class="image" src="https://image.tmdb.org/t/p/original/${movie.poster_path}" alt="${movie.title}" loading="lazy" width="500" />
+        <img class="image" src="${isPoster}" alt="${movie.title}" loading="lazy" width="500" />
      </div>
         <div class="film__information">
            

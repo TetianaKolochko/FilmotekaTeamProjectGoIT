@@ -5,7 +5,6 @@ import { findCardId } from './fetch';
 
 const addQueue = () => {
     const btn = document.querySelector('.modal__container .btn__queue');
-    console.log('hhh')
 
   btn.addEventListener('click', function () {
     const id = btn.getAttribute('data-id');
@@ -21,24 +20,24 @@ const addQueue = () => {
         save('queue',movieListId);
       }
     }
-    console.log(window.localStorage.getItem('queue'));
+    // console.log(window.localStorage.getItem('queue'));
   });
 };
 export default addQueue;
 
 export function getWatchedMovie(moviesIds) {
   const localStorageFile = load(moviesIds);
-  console.log('-------------------------------------------- :>>');
+  // console.log('-------------------------------------------- :>>');
   resetGallery();
   if (localStorageFile) {
     
     return localStorageFile.map((filmId) => {
       findCardId(filmId).then(filmObj => {
         // console.log('Whatch object :>> ');
-        console.log(filmObj);
+        // console.log(filmObj);
         const filmArr = [filmObj]
         // console.log('Film Arr :>> ');
-        console.log(filmArr);
+        // console.log(filmArr);
         return renderWatchedMovie(filmArr);
       })
     })
