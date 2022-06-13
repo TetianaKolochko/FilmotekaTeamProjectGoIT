@@ -1,7 +1,8 @@
 import { refs } from './refs.js';
 import { resetGallery } from './resetGallery.js';
 import { getPopularMovieList } from './renderFilmCard.js';
-import { getWatchedMovie } from './addWatched';
+import { getWatchedMovie } from './addQueue.js';
+
 
 import {
   createListFilms,
@@ -12,6 +13,7 @@ import {
 refs.headerNav.addEventListener('click', onChangePage);
 refs.logo.addEventListener('click', onLogoClick);
 refs.libraryBtn.addEventListener('click', onLiblaryClick);
+refs.queueBtn.addEventListener('click', onQueueClick);
 
 function onChangePage(e) {
   e.preventDefault();
@@ -79,3 +81,7 @@ function deleteActiveLink() {
 function onLiblaryClick() {
   getWatchedMovie('watched');
 }
+function onQueueClick() {
+  getWatchedMovie('queue');
+}
+

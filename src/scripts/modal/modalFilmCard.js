@@ -49,8 +49,14 @@ export function createModalFilmCard({ movie }) {
                      <p class="film__about__text">${movie.overview}</p>
           
            <div class="film__button__wrapper">
-               <button type="button" class=" film__button btn__watch" data-id="${movie.id }">Add to watched</button>
-               <button type="button" class=" film__button btn__queue" data-id="">Add to queue</button>
+
+               <button type="button" class=" film__button btn__watch" data-id="${
+                 movie.id
+               }">Add to watched</button>
+               <button type="button" class=" film__button btn__queue" data-id="${
+                 movie.id
+               }">Add to queue</button>
+
              </div>
               <button class="modal-close-btn">
      <svg class="close-icon" width="20" height="20">
