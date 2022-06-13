@@ -3,13 +3,19 @@ import { GENRES } from "../genre";
 
 
 export function createModalFilmCard({ movie }) {
+   
     const genresArray = getGenresToId(movie.genres);
-    const genresText = addGenres(genresArray);
+  const genresText = addGenres(genresArray);
+  let isPoster = `https://image.tmdb.org/t/p/original/${movie.poster_path}`;
+
+    if (!movie.poster_pathh) {
+      isPoster = `https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png`;
+    }
     return `
          <div class="modal__container">
      <div class="film__image">
     
-        <img class="image" src="https://image.tmdb.org/t/p/original/${movie.poster_path}" alt="${movie.title}" loading="lazy" width="500" />
+        <img class="image" src="${isPoster}" alt="${movie.title}" loading="lazy" width="500" />
      </div>
         <div class="film__information">
            
@@ -41,16 +47,23 @@ export function createModalFilmCard({ movie }) {
                      </ul>
                      <div>
                       <button class="trailer__btn" data-id="${movie.id}">Trailer
-      <svg class="close__icon-trailer" width="20" height="20" data-id="${movie.id}">
-    <path fill="#ffffff" d="M6 4l20 12-20 12z"></path>
-        </svg>
+
+      <svg class="close__icon-trailer" width="20" height="20">
+    <path  d="M6 4l20 12-20 12z"></path>
+      </svg>
      </button>
                      <h3 class="film__about__title">About</h3>
                      <p class="film__about__text">${movie.overview}</p>
           
            <div class="film__button__wrapper">
-               <button type="button" class=" film__button btn__watch" data-id="${movie.id }">Add to watched</button>
-               <button type="button" class=" film__button btn__queue" data-id="">Add to queue</button>
+
+               <button type="button" class=" film__button btn__watch" data-id="${
+                 movie.id
+               }">Add to watched</button>
+               <button type="button" class=" film__button btn__queue" data-id="${
+                 movie.id
+               }">Add to queue</button>
+
              </div>
               <button class="modal-close-btn">
      <svg class="close-icon" width="20" height="20">
@@ -60,7 +73,7 @@ export function createModalFilmCard({ movie }) {
      </button>
                </div>
              </div>`;
-    
+   
 }
     
 function getGenresToId(idArray) {  
