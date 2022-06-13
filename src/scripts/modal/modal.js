@@ -1,6 +1,10 @@
 import { findCardId } from '../fetch.js';
 import { refs } from '../refs.js';
 import { createModalFilmCard } from './modalFilmCard.js';
+import addWatched from '../addWatched.js';
+import addQueue from '../addQueue.js';
+import movieTrailer from './modalTrailer.js';
+
 
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
@@ -9,15 +13,22 @@ refs.movieGallery.addEventListener('click', openModal);
 
 function openModal(e) {
   e.preventDefault();
-    console.log(e.target.dataset.id)
+
+  if (e.target.nodeName !== 'A') {
+    return;
+  };
+    
   findCardId(e.target.dataset.id)
-      .then(movie => {        
-      if (e.target.nodeName !== 'IMG') return;
-    //   const markup = `<img class="gallery__image" src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}" alt="${movie.title}" loading="lazy" width="500" />  <div class="modal-close-btn">Close</div>`;
-      const modal = basicLightbox.create(createModalFilmCard({movie}));
-
+    .then(movie => {
+      //console.log(e.target.nodeName);
+      //console.log(movie);      
+      
+      const modal = basicLightbox.create(createModalFilmCard({ movie }));      
+  
       modal.show();
-
+      addWatched();
+      addQueue();
+      movieTrailer();
       const closeBtn = document.querySelector('.modal-close-btn');
       closeBtn.addEventListener('click', closeModal);
 
@@ -28,12 +39,11 @@ function openModal(e) {
           modal.close();
           window.removeEventListener('keydown', closeModalHandler);
         }
-        }
-        function closeModal(e) {
+      }
+      function closeModal(e) {
         modal.close();
         window.removeEventListener('keydown', closeModalHandler);
-      }      
-      
+      }
     })
     .then(data => {})
     .catch(error => {
