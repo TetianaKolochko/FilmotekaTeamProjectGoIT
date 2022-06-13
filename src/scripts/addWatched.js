@@ -59,7 +59,8 @@ export function getWatchedMovie(moviesIds) {
         // console.log('Film Arr :>> ');
         // console.log(filmArr);
         
-        return renderWatchedMovie(filmArr);
+        renderWatchedMovie(filmArr);
+        removeBtn();
         // refs.removeBtn.addEventListener('click', removeCardFromList);
         
       })
@@ -67,7 +68,14 @@ export function getWatchedMovie(moviesIds) {
   }
 }
 
-
+const removeBtn = () => {
+  let btn = document.querySelectorAll('.remove-btn');
+  console.log('btn :>> ', btn);
+  btn.forEach(item => {
+    item.classList.add('examoke');
+    item.addEventListener('click', () => console.log('object'));
+  })
+}
 
 
 
