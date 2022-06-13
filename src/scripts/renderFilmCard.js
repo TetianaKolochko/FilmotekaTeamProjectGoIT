@@ -6,24 +6,31 @@ getPopularMovieList();
 
 export function getPopularMovieList() {
   return popularFilm().then((filmSet) => {
-    console.log(filmSet)
     const filmArray = filmSet.results;
     renderMovieCardOnMainPage(filmArray);
-  })
+  }).catch(err => console.log(err));
 };
 
 export function renderMovieCardOnMainPage(filmArray) {
+  // console.log(filmArray);
+
   const markup = filmArray.reduce((html, film) => {
     const { original_title, poster_path, genre_ids, id, release_date } = film;
     const genresArray = getGenresToId(genre_ids);
     const genresText = sliceGenres(genresArray);
+    const slisedDate = sliceDate(release_date);
+    let isPoster = `https://image.tmdb.org/t/p/w500/${poster_path}`;
+
+    if (!poster_path) {
+      isPoster = `https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png`;
+    }
      return html +=
         `<li class="gallery__item">
           <a class="gallery__link" href="" data-id=${id}>
-            <img class='gallery__poster' src='https://image.tmdb.org/t/p/w500/${poster_path}' loading="lazy" alt='Poster for film ${original_title}'/>
+            <img class='gallery__poster' src='${isPoster}' loading="lazy" alt='Poster for film ${original_title}'/>
             <div class="gallery__movie-details">
               <p class="movie-details__movie-name">${original_title}</p>
-              <p class="movie-details__movie-info">${genresText} | ${release_date}</p>
+              <p class="movie-details__movie-info">${genresText} | ${slisedDate}</p>
             </div>
           </a>
         </li>`
@@ -34,19 +41,24 @@ export function renderMovieCardOnMainPage(filmArray) {
 //src="https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png"
 
 export function renderWatchedMovie(filmObject) {
-  
   const markup = filmObject.reduce((html, film) => {
     const { original_title, poster_path, genres, id, release_date, vote_average } = film;
     const genresNameArray = getGenresToName(genres);
     const genresText = sliceGenres(genresNameArray);
+    const slisedDate = sliceDate(release_date);
+    let isPoster = `https://image.tmdb.org/t/p/w500/${poster_path}`;
+
+    if (!poster_path) {
+      isPoster = `https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png`;
+    }
     return html +=
       `<li class="gallery__item">
           <a class="gallery__link" href="" data-id=${id}>
-            <img class='gallery__poster' src='https://image.tmdb.org/t/p/w500/${poster_path}' loading="lazy" alt='Poster for film ${original_title}' />
+            <img class='gallery__poster' src='${isPoster}' loading="lazy" alt='Poster for film ${original_title}' />
             <div class="gallery__movie-details">
               <p class="movie-details__movie-name">${original_title}</p>
               <div class="movie-details-wrap">
-                <p class="movie-details__movie-info">${genresText} | ${release_date}</p>
+                <p class="movie-details__movie-info">${genresText} | ${slisedDate}</p>
                 <div class="movie-details-rate">${vote_average}</div>
               </div>
             </div>
@@ -68,10 +80,14 @@ function getGenresToName(idArray) {
 
 
  export function sliceGenres(genreArray) {
-  if (genreArray.length > 2) {
+  if (genreArray.length > 3) {
     const slicedGenredWordArray = genreArray.slice(0, 2);
     slicedGenredWordArray.push('Other');
     return slicedGenredWordArray.join(", ");
   }
   return genreArray.join(", ")
 };
+
+function sliceDate(filmDate) {
+  return filmDate.slice(0, 4);
+}
