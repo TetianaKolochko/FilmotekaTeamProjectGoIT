@@ -3,6 +3,7 @@ import { GENRES } from "../genre";
 
 
 export function createModalFilmCard({ movie }) {
+   
     const genresArray = getGenresToId(movie.genres);
     const genresText = addGenres(genresArray);
     return `
@@ -40,9 +41,9 @@ export function createModalFilmCard({ movie }) {
                  </li>
                      </ul>
                      <div>
-                      <button class="trailer__btn">Trailer
+                      <button class="trailer__btn" data-id="${movie.id}">Trailer
       <svg class="close__icon-trailer" width="20" height="20">
-    <path fill="#ffffff" d="M6 4l20 12-20 12z"></path>
+    <path  d="M6 4l20 12-20 12z"></path>
         </svg>
      </button>
                      <h3 class="film__about__title">About</h3>
@@ -60,7 +61,7 @@ export function createModalFilmCard({ movie }) {
      </button>
                </div>
              </div>`;
-    
+   
 }
     
 function getGenresToId(idArray) {  
