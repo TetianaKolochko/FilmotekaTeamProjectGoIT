@@ -18,20 +18,22 @@
   .modal {
     @media screen and (min-width: 320px) and (max-width: 449px) {
       width: 320px;
-      height: 609px;
+      
     }
     @media screen and (min-width: 450px) and (max-width: 1999px) {
       width: 450px;
-      height: 609px;
+      
     }
   
     @media screen and (min-width: 767.8px) {
         width: 670px;
-        height: 670px;
+       
     }
-    
+
     background-color: white;
-    box-shadow: 0 0 100px 80px rgba(160, 101, 6, 0.192);
+     
+    
+    box-shadow: 0 0 100px 80px rgba(207, 130, 7, 0.192);
     border-radius: 20px;
     padding: 40px;
     position: absolute;
@@ -42,12 +44,12 @@
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &__close {
         position: absolute;
-        top: 14px;
-        right: 14px;
-        width: 30px;
-        height: 30px;
+        top: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
         background-color: transparent;
-        border: 1px solid #0000001A;
+        border: 2px solid $color-accent;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -83,11 +85,13 @@
     margin-bottom: 15px;
 }
 
+
 .next {
     width: 35px;
     height: 35px;
     border-radius: 50%;
     background-color: #eeeeee00;
+    border: 2px solid $color-accent;
     &:hover,
     &:focus {
         box-shadow: 0 0 5px 5px rgba(255, 107, 1, 0.63);
@@ -100,12 +104,14 @@
     height: 35px;
     border-radius: 50%;
     background-color: #eeeeee00;
+    border: 2px solid $color-accent;
     &:hover,
     &:focus {
         box-shadow: 0 0 5px 5px rgba(255, 107, 1, 0.63);
         transform: scale(1.03);
 
     }
+    
 }
 
 .modal__close:hover,
@@ -118,7 +124,7 @@
     margin-bottom: 20px;
 
     border-radius: 50%;
-    box-shadow: 0 0 100px 20px rgba(160, 101, 6, 0.787);
+    box-shadow: 0 0 100px 20px rgba(255, 107, 1, 0.63);
     background-size: cover;
 }
 
@@ -129,17 +135,50 @@
     align-items: center;
     width: 30px;
     height: 30px;
-    border: 1px solid #99a1ca;
+    border: 2px solid $color-accent;
     top: 0;
     right: 0;
     background-color: initial;
     border-radius: 50%;
 }
 
-// .goit-logo {
-//     position: absolute;
-//        display: flex;
-//        justify-content: center;
-//        align-items: center;
-// }
+.goit-logo {
+    position: absolute;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+}
 
+.worker__icons {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.worker__icon--inst {
+    margin-left: 10px;
+    &:hover,
+    &:focus {
+        fill: $color-accent;
+        transform: scale(1.03);
+    }
+}
+
+.worker__icon--git {
+    margin-left: 10px;
+    &:hover,
+    &:focus {
+        fill: $color-accent;
+        transform: scale(1.03);
+    }
+}
+
+// .arrow_icon {
+//     padding-top: 10px;
+//     display: flex;
+//     justify-content: center;
+//     text-align: center;
+//     fill: #e9981f;
+    
+    
+// }

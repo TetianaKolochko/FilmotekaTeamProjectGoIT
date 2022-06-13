@@ -12,12 +12,12 @@ import Thor from '../images/Team Avengers/Thor.jpeg';
 
 export const teamIds = [
   {
-    name: 'Женя Жменька',
+    name: 'Eugene Norko',
     position: 'Teamlead',
     img: captainAmerica ,
     github: 'https://github.com/EugeneNorko',
-    instagram: 'https://www.instagram.com/',
-    text: '“Don’t do anything stupid until I come back.” – Steve Rogers (Captain America)',
+    instagram: 'https://www.instagram.com/eugene.nnn/',
+    text: '“Compromise where you can. Where you can’t, don’t. Even if everyone is telling you that something wrong is something right. Even if the whole world is telling you to move, it is your duty to plant yourself like a tree, look them in the eye, and say. No, you move."',
     },
   {
     name: 'Pavlovskaya Natalia',
@@ -25,7 +25,7 @@ export const teamIds = [
     img: wonderWoman ,
     github: 'https://github.com/NataliaPavlovskaya',
     instagram: 'https://www.instagram.com/nata_horoshaya1/',
-    text: 'крутой чел и все дела',
+    text: '"If You Need To End A War, You Call Wonder Woman. I Have A Warriors Heart, But I Am Not Unmoved By Your Words."',
     },
   {
     name: 'Levkova Alina',
@@ -33,7 +33,7 @@ export const teamIds = [
     img: CatWoman ,
     github: 'https://github.com/AlinaLevkova77',
     instagram: 'https://www.instagram.com/alichka_lev/',
-    text: 'крутой чел и все дела',
+    text: '“You’re the second man who killed me this week, but I’ve got seven lives left.”',
   },
   {
       name: 'Koloshko Tatiana',
@@ -41,7 +41,7 @@ export const teamIds = [
       img: Rogue ,
       github:'https://github.com/TetianaKolochko' ,
       instagram: 'https://www.instagram.com/tanya_kolochko/',
-      text: 'крутой чел и все дела',
+      text: '"That’s the last time y’all be messin with Rogue."',
     },
     {
       name: 'Andrey Fedorchenko',
@@ -49,7 +49,7 @@ export const teamIds = [
       img: SpiderMan ,
       github: 'https://github.com/Andrew-GIS',
       instagram: 'https://www.instagram.com/fedorchenko.andrew/',
-      text: '"Чем больше сила, тем больше ответственность. Кем бы я ни был, что бы я ни делал, страдать всегда будут мои близкие. – Человек-паук! Вот почему геройствуют только дураки. (Spider Man)"',
+      text: '"With great power comes great responsibility.’ This is my gift, my curse. Who am I? I’m Spider-Man."',
     },
     {
       name: 'Kriminskiy Yuriy',
@@ -57,7 +57,7 @@ export const teamIds = [
       img: DeadPool ,
       github: 'https://github.com/kriminskiy',
       instagram: 'https://www.instagram.com/kriminskiy/',
-      text: 'крутой чел и все дела',
+      text: '"Bad Deadpool... Good Deadpool!"',
     },
     {
       name: 'Prysiazhniuk Serhii',
@@ -65,7 +65,7 @@ export const teamIds = [
       img: DoctorStrange ,
       github: 'https://github.com/PrysiazhnukSerhii',
       instagram: 'https://www.instagram.com/prysiaznhiuk_serhii/',
-      text: 'крутой чел и все дела',
+      text: '"Sometimes one must break the rules in order to serve the greater good."',
     },
     {
       name: 'Borodavko Bohdan',
@@ -73,7 +73,7 @@ export const teamIds = [
       img: TheFlash ,
       github: 'https://github.com/danxczm',
       instagram: 'https://www.instagram.com/xczm.pls/',
-      text: 'крутой чел и все дела',
+      text: '"Being Alive Means Running. I’m The Fastest Man Alive."',
     },
     {
       name: 'Kazymko Anastasia',
@@ -81,7 +81,7 @@ export const teamIds = [
       img: KittyPryde ,
       github: 'https://github.com/Anastasiia8888',
       instagram: 'https://www.instagram.com/nastya___k_____/',
-      text: 'крутой чел и все дела',
+      text: '"Yeah, but c’mon, we’re talking about the Serpent Society. D-Listers who bonded over a snake fetish. I am not making this up."',
     },
     {
       name: 'Hritsyk Valentyn',
@@ -89,7 +89,7 @@ export const teamIds = [
       img: IronMan,
       github: 'https://github.com/VH91',
       instagram: 'https://www.instagram.com/valentinhritsik/',
-      text: 'крутой чел и все дела',
+      text: '“Big man in his suit of armor. Take off and what are you?""Genius, Billionaire, Playboy, Philanthropist.”'
     },
     {
       name: 'Feshchenko Dmytro',
@@ -97,7 +97,7 @@ export const teamIds = [
       img: Thor ,
       github: 'https://github.com/',
       instagram: 'https://www.instagram.com/',
-      text: 'крутой чел и все дела',
+      text: '“You people are so petty, and tiny.”',
     },
                   
 ];
