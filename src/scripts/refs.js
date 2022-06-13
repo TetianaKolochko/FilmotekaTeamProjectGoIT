@@ -11,6 +11,7 @@ export const refs = {
     libraryButtons: document.querySelector('.js-library__button-wrapp'),
     movieGallery: document.querySelector('.js-gallery'),
     changedElementsToOpenLibrary: document.querySelectorAll('[data-library]'),
+    workerList: document.querySelector('.worker__list'),
     libraryBtn: document.querySelector('[data-libraryPage]'),
     watchedBtn: document.querySelector('.watched-btn'),
     removeBtn: document.querySelector('.remove-btn'),
