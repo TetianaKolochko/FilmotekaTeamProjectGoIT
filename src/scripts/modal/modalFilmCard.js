@@ -42,14 +42,10 @@ export function createModalFilmCard({ movie }) {
                      </ul>
                      <div>
                       <button class="trailer__btn" data-id="${movie.id}">Trailer
-<<<<<<< HEAD
+
       <svg class="close__icon-trailer" width="20" height="20">
     <path  d="M6 4l20 12-20 12z"></path>
-=======
-      <svg class="close__icon-trailer" width="20" height="20" data-id="${movie.id}">
-    <path fill="#ffffff" d="M6 4l20 12-20 12z"></path>
->>>>>>> main
-        </svg>
+      </svg>
      </button>
                      <h3 class="film__about__title">About</h3>
                      <p class="film__about__text">${movie.overview}</p>
