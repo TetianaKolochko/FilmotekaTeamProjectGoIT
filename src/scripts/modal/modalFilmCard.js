@@ -8,7 +8,7 @@ export function createModalFilmCard({ movie }) {
   const genresText = addGenres(genresArray);
   let isPoster = `https://image.tmdb.org/t/p/original/${movie.poster_path}`;
 
-    if (!movie.poster_pathh) {
+    if (!movie.poster_path) {
       isPoster = `https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png`;
     }
     return `
@@ -66,7 +66,7 @@ export function createModalFilmCard({ movie }) {
 
              </div>
               <button class="modal-close-btn">
-     <svg class="close-icon" width="20" height="20">
+     <svg class="close-modal__icon" width="20" height="20">
  <path  stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933"></path>
 <path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 23.467l14.933-14.933"></path>
      </svg>
