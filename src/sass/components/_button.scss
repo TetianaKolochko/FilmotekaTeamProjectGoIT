@@ -25,6 +25,9 @@
 }
 
 .modal-close-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     position: absolute;
     top: 8px;
@@ -35,7 +38,7 @@
     width: 30px;
     height: 30px;
    
-    margin-bottom: 8px;
+  
     border: none;
     border-radius: 50%;
     background-color: transparent;
@@ -48,6 +51,9 @@
     &:hover,
         &:focus {
             box-shadow: 5px 5px 46px 16px rgba(255, 107, 1, 0.3);
+            .close-icon{
+                color: $color-accent;
+            }
         }
 }
 
@@ -68,6 +74,7 @@
     border-radius: 5px;
     background-color: $color-accent;
         color: $color-lightest;
+       
         border: 1px solid $color-accent;
     cursor: pointer;
     border: 1px solid $color-darkest;
@@ -77,10 +84,34 @@
     &:hover,
     &:focus {
         background-color: $color-accent;
-        color: $color-lightest;
+        color: $color-dark;
         border: 1px solid $color-accent;
         box-shadow: 5px 5px 46px 16px rgba(255, 107, 1, 0.3);
-
+.close__icon-trailer{
+    fill: $color-dark;
+}
     }
 
+}
+.close__icon-trailer {
+
+    padding-left: 5px;
+    display: inline-block;
+    width: 45px;
+    height: 30px;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: $color-lightest;
+
+}
+
+.close-modal__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
 }

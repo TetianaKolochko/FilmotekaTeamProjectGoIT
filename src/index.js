@@ -4,3 +4,5 @@ import './scripts/onOpenLibrary.js';
 import './scripts/searsh.js';
 import './scripts/modal/footerModal.js';
 import './scripts/localStorageApi.js';
+import './scripts/pagination.js';
+import './scripts/addQueue';
