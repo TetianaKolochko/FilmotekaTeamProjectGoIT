@@ -2,6 +2,7 @@ import { load, save, remove } from '../scripts/localStorageApi.js';
 import { renderWatchedMovie } from './renderFilmCard';
 import { resetGallery } from '../scripts/resetGallery.js';
 import { findCardId } from './fetch';
+import { refs } from './refs.js';
 
 const addWatched = () => {
   const btn = document.querySelector('.modal__container .btn__watch');
@@ -57,9 +58,35 @@ export function getWatchedMovie(moviesIds) {
         const filmArr = [filmObj]
         // console.log('Film Arr :>> ');
         // console.log(filmArr);
+
         return renderWatchedMovie(filmArr);
+        // refs.removeBtn.addEventListener('click', removeCardFromList);
+        
       })
     })
   }
 }
 
+
+
+
+
+//removing card from localStorage
+function removeCardFromList() {
+  let localStorageFile = localStorage.getItem('watched');
+  console.log('localStorageFile :>> ', localStorageFile);
+  const cardId = removeBtn.getAttribute("card-id");
+  console.log('cardId :>> ', cardId);
+  for (let index = 0; index < localStorageFile.length; index++) {
+    if (localStorageFile[index] === cardId) {
+      localStorage.removeItem(localStorageFile[index]);
+    }
+  }
+  getWatchedMovie('watched');
+}
+
+// return localStorageFile;
+  // const li = e.target.parentElement.parentElement;
+  // li.remove();
+  // // closest('li').remove();
+  // console.log('removed :>>');b

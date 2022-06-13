@@ -26,6 +26,7 @@ function openModal(e) {
       const modal = basicLightbox.create(createModalFilmCard({ movie }));      
   
       modal.show();
+     
       addWatched();
       addQueue();
       movieTrailer();

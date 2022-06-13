@@ -12,5 +12,9 @@ export const refs = {
     movieGallery: document.querySelector('.js-gallery'),
     changedElementsToOpenLibrary: document.querySelectorAll('[data-library]'),
     libraryBtn: document.querySelector('[data-libraryPage]'),
-    queueBtn:document.querySelector('[data-queue]'),
+    watchedBtn: document.querySelector('.watched-btn'),
+    removeBtn: document.querySelector('.remove-btn'),
+    queueBtn: document.querySelector(".queue-btn"),
+    clearList: document.querySelector(".clear-list-btn"),
+    clearAllBtn: document.querySelector(".clear-all-btn"),
 }
