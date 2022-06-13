@@ -13,6 +13,7 @@ refs.headerNav.addEventListener('click', onChangePage);
 refs.logo.addEventListener('click', onLogoClick);
 refs.libraryBtn.addEventListener('click', onLiblaryClick);
 refs.watchedBtn.addEventListener('click', onWatchedClick);
+refs.queuebtn.addEventListener('click', onQueueClick)
 
 
 // const removeCardFromList = () =>
@@ -102,8 +103,13 @@ function removeCardFromList() {
   }
 
 function onWatchedClick() {
+  refs.queuebtn.classList.remove('.active');
   getWatchedMovie('watched');
   // refs.removeBtn.addEventListener('click', removeCardFromList);
+}
+
+function onQueueClick() {
+  refs.onWatchedClick.classList.remove('.active');
 }
 
 

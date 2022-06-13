@@ -14,4 +14,5 @@ export const refs = {
     libraryBtn: document.querySelector('[data-libraryPage]'),
     watchedBtn: document.querySelector('.watched-btn'),
     removeBtn: document.querySelector('.remove-btn'),
+    queuebtn: document.querySelector(".queue-btn"),
 }
