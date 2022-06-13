@@ -3,46 +3,28 @@ import { renderWatchedMovie } from './renderFilmCard';
 import { resetGallery } from '../scripts/resetGallery.js';
 import { findCardId } from './fetch';
 
-const addWatched = () => {
-  const btn = document.querySelector('.modal__container .btn__watch');
+const addQueue = () => {
+    const btn = document.querySelector('.modal__container .btn__queue');
+    console.log('hhh')
 
   btn.addEventListener('click', function () {
     const id = btn.getAttribute('data-id');
 
-    if (load('watched') === undefined) {
+    if (load('queue') === undefined) {
       let movieListId = [id];
-      save('watched', movieListId);
+      save('queue', movieListId);
     } else {
-      const movieListId = load('watched');
+      const movieListId = load('queue');
 
       if (movieListId.includes(id) === false) {
         movieListId.push(id);
-        save('watched', movieListId);
+        save('queue',movieListId);
       }
     }
-    console.log(window.localStorage.getItem('watched'));
+    console.log(window.localStorage.getItem('queue'));
   });
 };
-export default addWatched;
-
-// export function getWatchedMovie() {
-//   const getIdArray = localStorage.getItem('watched');
-//   const parsedIdArray = JSON.parse(getIdArray);
-//   if (getIdArray) {
-//     resetGallery();
-//     return parsedIdArray.map((filmId) => {
-//       findCardId(filmId).then(filmObj => {
-//         console.log('Whatch object :>> ');
-//         console.log(filmObj);
-//         const filmArr = [filmObj]
-//         console.log('Film Arr :>> ');
-//         console.log(filmArr);
-//         return renderWatchedMovie(filmArr);
-//       })
-//     })
-//   }
-// }
-
+export default addQueue;
 
 export function getWatchedMovie(moviesIds) {
   const localStorageFile = load(moviesIds);
@@ -62,4 +44,3 @@ export function getWatchedMovie(moviesIds) {
     })
   }
 }
-
