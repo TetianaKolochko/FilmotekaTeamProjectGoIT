@@ -71,6 +71,8 @@ export function renderWatchedMovie(filmObject) {
     return refs.movieGallery.insertAdjacentHTML('beforeend', markup);
 }
 
+
+
 export function getGenresToId(idArray) {
   return idArray.map(genreId => GENRES[genreId]);
 }

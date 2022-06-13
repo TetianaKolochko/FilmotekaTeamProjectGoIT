@@ -1,7 +1,8 @@
 import { refs } from './refs.js';
 import { resetGallery } from './resetGallery.js';
 import { getPopularMovieList } from './renderFilmCard.js';
-import { getWatchedMovie } from './addWatched';
+import { getWatchedMovie } from './addQueue.js';
+
 
 import {
   createListFilms,
@@ -13,10 +14,9 @@ refs.headerNav.addEventListener('click', onChangePage);
 refs.logo.addEventListener('click', onLogoClick);
 refs.libraryBtn.addEventListener('click', onLiblaryClick);
 refs.watchedBtn.addEventListener('click', onWatchedClick);
-refs.queuebtn.addEventListener('click', onQueueClick)
-
-
-// const removeCardFromList = () =>
+refs.queueBtn.addEventListener('click', onQueueClick);
+refs.clearList.addEventListener("click", onClearList);
+refs.clearAllBtn.addEventListener("click", onClearAllClick);
 
 function onChangePage(e) {
   e.preventDefault();
@@ -81,9 +81,8 @@ function deleteActiveLink() {
   });
 }
 
-
-
 function onLiblaryClick() {
+  
   getWatchedMovie('watched');
 
   // refs.removeBtn.addEventListener('click', removeCardFromList);
@@ -103,13 +102,43 @@ function removeCardFromList() {
   }
 
 function onWatchedClick() {
-  refs.queuebtn.classList.remove('.active');
+  refs.clearList.innerText = "CLEAR WATCHED";
+  refs.watchedBtn.classList.add('active');
+  refs.queueBtn.classList.remove('active');
   getWatchedMovie('watched');
   // refs.removeBtn.addEventListener('click', removeCardFromList);
 }
 
 function onQueueClick() {
-  refs.onWatchedClick.classList.remove('.active');
+  refs.clearList.innerText = "CLEAR QUEUE";
+  refs.queueBtn.classList.add('active');
+  refs.watchedBtn.classList.remove('active');
+  getWatchedMovie('queue');
 }
 
+function onClearAllClick() {
+  const messege = confirm("Do you want to clear you Library?");
+  if (messege) {
+    localStorage.clear();
+    getWatchedMovie('watched');
+    getWatchedMovie('queue');
+    console.log('Cleared localStore!');
+  }
+}
+
+function onClearList() {
+  if (refs.watchedBtn.classList.contains('active')) {
+    
+    localStorage.removeItem('watched');
+    getWatchedMovie('watched');
+  }
+  else if (refs.queueBtn.classList.contains('active')) {
+    
+    localStorage.removeItem('queue');
+    getWatchedMovie('queue');
+  }
+  else {
+    console.log('Choose your list in Library ');
+  }
+}
 

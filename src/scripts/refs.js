@@ -14,5 +14,7 @@ export const refs = {
     libraryBtn: document.querySelector('[data-libraryPage]'),
     watchedBtn: document.querySelector('.watched-btn'),
     removeBtn: document.querySelector('.remove-btn'),
-    queuebtn: document.querySelector(".queue-btn"),
+    queueBtn: document.querySelector(".queue-btn"),
+    clearList: document.querySelector(".clear-list-btn"),
+    clearAllBtn: document.querySelector(".clear-all-btn"),
 }
