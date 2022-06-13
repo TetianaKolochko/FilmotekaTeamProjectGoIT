@@ -24,6 +24,8 @@ function openModal(e) {
   
       modal.show();
       addWatched();
+      addQueue();
+
     
       const closeBtn = document.querySelector('.modal-close-btn');
       closeBtn.addEventListener('click', closeModal);

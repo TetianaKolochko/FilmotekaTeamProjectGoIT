@@ -155,7 +155,7 @@
 			&:focus {
 				background-color: rgba(255, 107, 1, 0.879);
 				fill: color-accent;
-				transform: scale(1.25);
+				// transform: scale(1.05);
 
 			}
 	}
@@ -165,4 +165,9 @@
 		width: 25px;
 		height: 25px;
 		z-index: 4;
+		&:hover,
+		&:focus {
+			transform: scale(1.05);
+			fill: rgba(255, 107, 1, 0.879);
+		}
 	}

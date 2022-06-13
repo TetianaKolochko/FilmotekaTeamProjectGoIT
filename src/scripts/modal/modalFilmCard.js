@@ -49,14 +49,14 @@ export function createModalFilmCard({ movie }) {
           
            <div class="film__button__wrapper">
                <button type="button" class=" film__button btn__watch" data-id="${movie.id }">Add to watched</button>
-               <button type="button" class=" film__button btn__queue" data-id="">Add to queue</button>
+               <button type="button" class=" film__button btn__queue" data-id="${movie.id }">Add to queue</button>
              </div>
-              <button class="modal-close-btn">
-     <svg class="close-icon" width="100" height="100">
- <path  stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933"></path>
-<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 23.467l14.933-14.933"></path>
-     </svg>
-     </button>
+                <button class="modal-close-btn">
+                  <svg class="close-icon" width="100" height="100">
+                    <path  stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933"></path>
+                    <path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 23.467l14.933-14.933"></path>
+                  </svg>
+                </button>
                </div>
              </div>`;
     

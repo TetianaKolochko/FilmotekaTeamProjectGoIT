@@ -13,14 +13,9 @@ refs.headerNav.addEventListener('click', onChangePage);
 refs.logo.addEventListener('click', onLogoClick);
 refs.libraryBtn.addEventListener('click', onLiblaryClick);
 refs.watchedBtn.addEventListener('click', onWatchedClick);
-refs.removeBtn.addEventListener('click', removeCardFromList);
 
-function removeCardFromList(e) {
-  const li = e.target.parentElement.parentElement;
-  li.remove();
-  // closest('li').remove();
-  console.log('removed :>>');
-}
+
+// const removeCardFromList = () =>
 
 function onChangePage(e) {
   e.preventDefault();
@@ -85,10 +80,30 @@ function deleteActiveLink() {
   });
 }
 
+
+
 function onLiblaryClick() {
   getWatchedMovie('watched');
+
+  // refs.removeBtn.addEventListener('click', removeCardFromList);
 }
+
+function removeCardFromList() {
+  let localStorageFile = localStorage.getItem('watched');
+  console.log('localStorageFile :>> ', localStorageFile);
+  const cardId = removeBtn.getAttribute("card-id");
+  console.log('cardId :>> ', cardId);
+  for (let index = 0; index < localStorageFile.length; index++) {
+    if (localStorageFile[index] === cardId) {
+      localStorage.removeItem(localStorageFile[index]);
+    }
+  }
+  getWatchedMovie('watched');
+  }
 
 function onWatchedClick() {
   getWatchedMovie('watched');
+  // refs.removeBtn.addEventListener('click', removeCardFromList);
 }
+
+
