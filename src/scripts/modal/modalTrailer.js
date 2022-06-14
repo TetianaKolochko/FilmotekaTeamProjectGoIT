@@ -16,16 +16,12 @@ function openTrailer (id) {
     console.log(data);
         const key = data.results[0].key;
         const modal = basicLightbox.create(`
-  <iframe width="860" height="615" src="https://www.youtube.com/embed/${key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<button class="modal-close-btn">
-     <svg class="close-modal__icon" width="20" height="20">
- <path  stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933"></path>
-<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 23.467l14.933-14.933"></path>
-     </svg>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<button class="close-modal__trailer">     
      </button>`);
     modal.show();
     
-    const closeBtn = document.querySelector('.modal-close-btn');
+    const closeBtn = document.querySelector('.close-modal__trailer');
     closeBtn.addEventListener('click', closeModal);
     function closeModal(e) {
         modal.close();        
