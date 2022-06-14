@@ -86,6 +86,7 @@
     border: 2px solid $color-accent;
     border-radius: 50%;
     transition: box-shadow $duration $timing, transform $duration $timing;
+    cursor: pointer;
 
     &:hover {
     box-shadow: 0 0 5px 5px rgba(255, 107, 1, 0.63);
@@ -141,6 +142,7 @@
     background-color: #eeeeee00;
     border: 2px solid $color-accent;
     transition: box-shadow $duration $timing, transform $duration $timing;
+    cursor:pointer;
 
     &:hover {
         box-shadow: 0 0 5px 5px rgba(255, 107, 1, 0.63);
