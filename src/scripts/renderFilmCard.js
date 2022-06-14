@@ -2,7 +2,9 @@ import { popularFilm } from './fetch.js'
 import { refs } from './refs.js';
 import { GENRES } from './genre.js';
 import { removeCardFromList } from "./onOpenLibrary";
-
+const cardRefs = {
+  delete: null,
+}
 
 getPopularMovieList();
 
@@ -43,8 +45,10 @@ export function renderMovieCardOnMainPage(filmArray) {
 //src="https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png"
 
 export function renderWatchedMovie(filmObject) {
+  let btnclass = null;
   const markup = filmObject.reduce((html, film) => {
     const { original_title, poster_path, genres, id, release_date, vote_average } = film;
+    btnclass = `.js-remove-btn-${id}`;
     const genresNameArray = getGenresToName(genres);
     const genresText = sliceGenres(genresNameArray);
     const slisedDate = sliceDate(release_date);
@@ -52,10 +56,6 @@ export function renderWatchedMovie(filmObject) {
 
     if (!poster_path) {
       isPoster = `https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png`;
-    }
-
-    const func = () => {
-      console.log('1 :>> ');
     }
     return html +=
       `<li class="gallery__item">
@@ -70,7 +70,7 @@ export function renderWatchedMovie(filmObject) {
             </div>
             
           </a>
-          <button type="button" class="remove-btn" card-id=${id} onClick="func()">
+          <button type="button" class="remove-btn js-remove-btn-${id}" card-id=${id}>
           <svg class="close-icon" width="14" height="14">
             <svg class="close-icon" width="100" height="100">
               <path  stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933"></path>
@@ -78,10 +78,9 @@ export function renderWatchedMovie(filmObject) {
           </svg>
           </button>
         </li>`}, "");
-  
-  // refs.removeBtn.addEventListener('click', removeCardFromList);
-  
-    return refs.movieGallery.insertAdjacentHTML('beforeend', markup);
+  refs.movieGallery.insertAdjacentHTML('beforeend', markup)
+  cardRefs.delete = document.querySelector(btnclass);
+  cardRefs.delete.addEventListener('click', () => console.log('Андрій, чого так вийшло?'));
 }
 
 
@@ -110,11 +109,11 @@ function sliceDate(filmDate) {
 
 
 //tried to add class to btn, also get this btn at all
-// const removeBtn = () => {
-//   let btn = document.querySelectorAll('.remove-btn');
-//   btn.forEach(item => {
-//     item.classList.add('examoke');
-//     item.addEventListener('click', () => console.log('object'));
+// const removeBtn = (btnArray) => {
+//   // let btn = document.querySelectorAll('.remove-btn');
+//   btnArray.forEach(btn => {
+//     // item.classList.add('examoke');
+//     btn.addEventListener('click', () => console.log('object'));
 //   })
 // }
 
