@@ -16,7 +16,7 @@ refs.libraryBtn.addEventListener('click', onLiblaryClick);
 refs.watchedBtn.addEventListener('click', onWatchedClick);
 refs.queueBtn.addEventListener('click', onQueueClick);
 refs.clearList.addEventListener("click", onClearList);
-refs.clearAllBtn.addEventListener("click", onClearAllClick);
+// refs.clearAllBtn.addEventListener("click", onClearAllClick);
 
 function onChangePage(e) {
   e.preventDefault();

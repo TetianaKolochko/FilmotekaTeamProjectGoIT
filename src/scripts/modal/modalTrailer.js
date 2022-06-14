@@ -13,7 +13,6 @@ const movieTrailer = () => {
 
 function openTrailer (id) {
     findTrailer(id).then(data => {
-        console.log(data);
         const key = data.results[0].key;
         const instance = basicLightbox.create(`
   <iframe width="860" height="615" src="https://www.youtube.com/embed/${key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

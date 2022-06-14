@@ -21,46 +21,26 @@ const addWatched = () => {
         save('watched', movieListId);
       }
     }
-    console.log(window.localStorage.getItem('watched'));
+    // console.log(window.localStorage.getItem('watched'));
   });
 };
 export default addWatched;
 
-// export function getWatchedMovie() {
-//   const getIdArray = localStorage.getItem('watched');
-//   const parsedIdArray = JSON.parse(getIdArray);
-//   if (getIdArray) {
-//     resetGallery();
-//     return parsedIdArray.map((filmId) => {
-//       findCardId(filmId).then(filmObj => {
-//         console.log('Whatch object :>> ');
-//         console.log(filmObj);
-//         const filmArr = [filmObj]
-//         console.log('Film Arr :>> ');
-//         console.log(filmArr);
-//         return renderWatchedMovie(filmArr);
-//       })
-//     })
-//   }
-// }
-
-
 export function getWatchedMovie(moviesIds) {
   const localStorageFile = load(moviesIds);
-  console.log('-------------------------------------------- :>>');
+  // console.log('-------------------------------------------- :>>');
   resetGallery();
   if (localStorageFile) {
     
     return localStorageFile.map((filmId) => {
       findCardId(filmId).then(filmObj => {
         // console.log('Whatch object :>> ');
-        console.log(filmObj);
+        // console.log(filmObj);
         const filmArr = [filmObj]
         // console.log('Film Arr :>> ');
         // console.log(filmArr);
-        
-        renderWatchedMovie(filmArr);
-        removeBtn();
+
+        return renderWatchedMovie(filmArr);
         // refs.removeBtn.addEventListener('click', removeCardFromList);
         
       })
@@ -68,33 +48,3 @@ export function getWatchedMovie(moviesIds) {
   }
 }
 
-const removeBtn = () => {
-  let btn = document.querySelectorAll('.remove-btn');
-  console.log('btn :>> ', btn);
-  btn.forEach(item => {
-    item.classList.add('examoke');
-    item.addEventListener('click', () => console.log('object'));
-  })
-}
-
-
-
-//removing card from localStorage
-function removeCardFromList() {
-  let localStorageFile = localStorage.getItem('watched');
-  console.log('localStorageFile :>> ', localStorageFile);
-  const cardId = removeBtn.getAttribute("card-id");
-  console.log('cardId :>> ', cardId);
-  for (let index = 0; index < localStorageFile.length; index++) {
-    if (localStorageFile[index] === cardId) {
-      localStorage.removeItem(localStorageFile[index]);
-    }
-  }
-  getWatchedMovie('watched');
-}
-
-// return localStorageFile;
-  // const li = e.target.parentElement.parentElement;
-  // li.remove();
-  // // closest('li').remove();
-  // console.log('removed :>>');b
