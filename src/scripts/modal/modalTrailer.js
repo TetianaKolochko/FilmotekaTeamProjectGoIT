@@ -16,7 +16,7 @@ function openTrailer (id) {
     console.log(data);
         const key = data.results[0].key;
         const modal = basicLightbox.create(`
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="680" height="415" src="https://www.youtube.com/embed/${key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <button class="close-modal__trailer">     
      </button>`);
     modal.show();
