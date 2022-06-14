@@ -38,25 +38,24 @@ function renderTeamMember(teamIds) {
       
        return html +=
           ` <div class="worker__item">
-            <img src="${img}" alt="member image" class="worker__img" width="350px" height="375px"/>
-            <div class="worker-card">
+            <div class="worker-image-wrapp">
+            <img src="${img}" alt="member image" class="worker__img"/>
+            </div>
                   <h2 class="worker-title">${name}</h2>
-                  <p class ="worker-positoin">${position}</p> 
+                  <p class ="worker-position">${position}</p> 
                   <div class="worker__icons">
-                    <a class="worker__icon" href="${github}">
-                    <svg class="worker__icon--git" width="32px" height="32px">
-                    ${iconGitSvgCode}
-                    </svg>
+                    <a class="worker__icon-link" href="${github}">
+                      <svg class="worker__icon worker__icon--git" width="32px" height="32px">
+                      ${iconGitSvgCode}
+                      </svg>
                     </a>
-                    <a class="workers__icon" href="${instagram}">
-                    <svg class="worker__icon--inst" width="32px" height="32px">
-                    ${iconInstSvgCode}
-                    </svg>
-                          </a> 
-                            
-                </div>
-                <p class="worker-text">${text}</p> 
-                </div>
+                    <a class="worker__icon-link" href="${instagram}">
+                      <svg class="worker__icon worker__icon--inst" width="32px" height="32px">
+                      ${iconInstSvgCode}
+                      </svg>
+                    </a> 
+                  </div>
+                  <p class="worker-text">${text}</p> 
                 </div>`
       }, "");
       return refs.workerList.insertAdjacentHTML('beforeend', markup);
