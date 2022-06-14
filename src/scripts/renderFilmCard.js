@@ -72,7 +72,7 @@ export function renderWatchedMovie(filmObject) {
             </div>
             
           </a>
-          <button type="button" class="remove-btn js-remove-btn-${id}" card-id=${id}>
+          <button type="button" class="remove-btn js-remove-btn-${id}" data-card-id=${id}>
           <svg class="close-icon" width="14" height="14">
             <svg class="close-icon" width="100" height="100">
               <path  stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933"></path>
@@ -92,12 +92,12 @@ function removeCard(e) {
   if (!state) {
     activeLibrary = 'queue';
   }
-    e.target.getAttribute(data-card-id);
+    // e.target.getAttribute(data-card-id);
     // console.log('object :>> ', e.currentTarget);
     let localStorageFile = load(activeLibrary);
     // console.log('localStorageFile :>> ', localStorageFile);
     const id = e.currentTarget.getAttribute(`data-card-id`);
-    console.log('id :>> ', id);
+    // console.log('id :>> ', id);
     const resalt = localStorageFile.filter(item => item !== id);
     // console.log('resalt :>> ', resalt);
     save(activeLibrary, resalt);
