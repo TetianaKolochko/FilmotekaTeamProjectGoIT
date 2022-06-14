@@ -1,7 +1,9 @@
 import { popularFilm } from './fetch.js'
 import { refs } from './refs.js';
 import { GENRES } from './genre.js';
-import { removeCardFromList } from "./onOpenLibrary";
+import { getWatchedMovie } from "./addWatched";
+import { load, save, remove } from '../scripts/localStorageApi.js';
+
 const cardRefs = {
   delete: null,
 }
@@ -78,12 +80,29 @@ export function renderWatchedMovie(filmObject) {
           </svg>
           </button>
         </li>`}, "");
-  refs.movieGallery.insertAdjacentHTML('beforeend', markup)
+  refs.movieGallery.insertAdjacentHTML('beforeend', markup);
+  
   cardRefs.delete = document.querySelector(btnclass);
-  cardRefs.delete.addEventListener('click', () => console.log('Андрій, чого так вийшло?'));
+  cardRefs.delete.addEventListener('click', removeCard);
 }
 
-
+function removeCard(e) {
+  const state = refs.watchedBtn.classList.contains("active");
+  let activeLibrary = 'watched';
+  if (!state) {
+    activeLibrary = 'queue';
+  }
+    e.target.getAttribute(data-card-id);
+    // console.log('object :>> ', e.currentTarget);
+    let localStorageFile = load(activeLibrary);
+    // console.log('localStorageFile :>> ', localStorageFile);
+    const id = e.currentTarget.getAttribute(`data-card-id`);
+    console.log('id :>> ', id);
+    const resalt = localStorageFile.filter(item => item !== id);
+    // console.log('resalt :>> ', resalt);
+    save(activeLibrary, resalt);
+    getWatchedMovie(activeLibrary);
+  }
 
 export function getGenresToId(idArray) {
   return idArray.map(genreId => GENRES[genreId]);
@@ -106,19 +125,3 @@ function getGenresToName(idArray) {
 function sliceDate(filmDate) {
   return filmDate.slice(0, 4);
 }
-
-
-//tried to add class to btn, also get this btn at all
-// const removeBtn = (btnArray) => {
-//   // let btn = document.querySelectorAll('.remove-btn');
-//   btnArray.forEach(btn => {
-//     // item.classList.add('examoke');
-//     btn.addEventListener('click', () => console.log('object'));
-//   })
-// }
-
-// (async function fetchFunc() {
-//   await getWatchedMovie(moviesIds);
-//   await removeBtn();
-// })()
-
