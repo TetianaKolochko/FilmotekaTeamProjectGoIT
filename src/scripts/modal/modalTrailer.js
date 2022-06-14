@@ -12,16 +12,27 @@ const movieTrailer = () => {
 }
 
 function openTrailer (id) {
-    findTrailer(id).then(data => {
+  findTrailer(id).then(data => {
+    console.log(data);
         const key = data.results[0].key;
-        const instance = basicLightbox.create(`
-  <iframe width="860" height="615" src="https://www.youtube.com/embed/${key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-`);
-        instance.show();
-        
+        const modal = basicLightbox.create(`
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<button class="close-modal__trailer">     
+     </button>`);
+    modal.show();
+    
+    const closeBtn = document.querySelector('.close-modal__trailer');
+    closeBtn.addEventListener('click', closeModal);
+    function closeModal(e) {
+        modal.close();        
+        window.removeEventListener('keydown', closeModalHandler);
+      }
       })
       .catch(error => {
-      console.log('oops!');
+      const modal = basicLightbox.create(`
+    <iframe width="860" height="615" src="https://www.youtube.com/embed/6DhiiFGk4_s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      `);
+        modal.show();
     });
   }
 
