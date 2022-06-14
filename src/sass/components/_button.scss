@@ -29,8 +29,7 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    position: absolute;
-    top: 8px;
+     top: 8px;
     right: 20px;
     display: flex;
     align-items: center;
@@ -51,8 +50,8 @@
     &:hover,
         &:focus {
             box-shadow: 5px 5px 46px 16px rgba(255, 107, 1, 0.3);
-            .close-icon{
-                color: $color-accent;
+            .close-modal__icon{
+                stroke: $color-accent;
             }
         }
 }
@@ -87,20 +86,21 @@
         color: $color-dark;
         border: 1px solid $color-accent;
         box-shadow: 5px 5px 46px 16px rgba(255, 107, 1, 0.3);
-.close__icon-trailer{
+.icon-trailer{
     fill: $color-dark;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
     }
 
 }
-.close__icon-trailer {
+.icon-trailer {
 
     padding-left: 5px;
     display: inline-block;
     width: 45px;
     height: 30px;
     stroke-width: 0;
-    stroke: currentColor;
+  
     fill: $color-lightest;
 
 }
@@ -112,8 +112,8 @@
     width: 30px;
     height: 30px;
     stroke-width: 0;
-    stroke: currentColor;
-    fill: currentColor;
+    stroke: $color-darkest;
+   
 }
 .close-modal__trailer {
 position: absolute;
