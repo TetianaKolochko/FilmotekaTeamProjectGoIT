@@ -1,6 +1,8 @@
 import { teamIds }  from '../team';
 import { refs } from '../refs.js';
 import Siema from 'siema';
+import { lockBodyScroll }  from '../bodyScroll.js';
+
 
 const setting = {
     selector: '.siema_one',
@@ -22,6 +24,7 @@ const refsModal = {
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
     body: document.querySelector('body'),
+    sliderBody: document.querySelector('.js-worker__list'),
   };
   
 refsModal.openModalBtn.addEventListener('click', onOpenModal);
@@ -38,7 +41,7 @@ function renderTeamMember(teamIds) {
             <img src="${img}" alt="member image" class="worker__img" width="350px" height="375px"/>
             <div class="worker-card">
                   <h2 class="worker-title">${name}</h2>
-                  <p class = "worker-positoin">${position}</p> 
+                  <p class ="worker-positoin">${position}</p> 
                   <div class="worker__icons">
                     <a class="worker__icon" href="${github}">
                     <svg class="worker__icon--git" width="32px" height="32px">
@@ -61,22 +64,25 @@ function renderTeamMember(teamIds) {
   }
 
 function onOpenModal(e) {
-    e.preventDefault();
-
+  e.preventDefault();
     const team = teamIds;
-    renderTeamMember(team);
+    if (refsModal.sliderBody.innerHTML === "") {
+      renderTeamMember(team);
+      const mySiema = new Siema(setting);
+      document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
+      document.querySelector('.next').addEventListener('click', () => mySiema.next());
+  }
     refsModal.body.addEventListener('keydown', onEscCloseModal);
     refsModal.modal.addEventListener('click', onBackdropCloseModal);
-    const mySiema = new Siema(setting);
-    document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
-    document.querySelector('.next').addEventListener('click', () => mySiema.next());
     refsModal.modal.classList.add('shown');
+    lockBodyScroll();
   }
   
 function onCloseModal ()  {
       refsModal.modal.classList.remove('shown');
       refsModal.body.removeEventListener('Keydown', onEscCloseModal);
       refsModal.modal.removeEventListener('click', onBackdropCloseModal);
+      lockBodyScroll();
   }
   
 function onEscCloseModal(e) {
