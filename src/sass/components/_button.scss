@@ -51,7 +51,7 @@
         &:focus {
             box-shadow: 5px 5px 46px 16px rgba(255, 107, 1, 0.3);
             .close-modal__icon{
-                color: $color-accent;
+                stroke: $color-accent;
             }
         }
 }
@@ -86,21 +86,21 @@
         color: $color-dark;
         border: 1px solid $color-accent;
         box-shadow: 5px 5px 46px 16px rgba(255, 107, 1, 0.3);
-.close__icon-trailer{
+.icon-trailer{
     fill: $color-dark;
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
     }
 
 }
-.close__icon-trailer {
+.icon-trailer {
 
     padding-left: 5px;
     display: inline-block;
     width: 45px;
     height: 30px;
     stroke-width: 0;
-    stroke: currentColor;
+  
     fill: $color-lightest;
 
 }
@@ -112,6 +112,6 @@
     width: 30px;
     height: 30px;
     stroke-width: 0;
-    stroke: currentColor;
-    fill: currentColor;
+    stroke: $color-darkest;
+   
 }
