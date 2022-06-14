@@ -3,7 +3,6 @@ import { refs } from './refs.js';
 import { GENRES } from './genre.js';
 import { getWatchedMovie } from "./addWatched";
 import { load, save, remove } from '../scripts/localStorageApi.js';
-// import { removeCardFromList } from "./addWatched";
 
 const cardRefs = {
   delete: null,
@@ -73,7 +72,7 @@ export function renderWatchedMovie(filmObject) {
             </div>
             
           </a>
-          <button type="button" name="${original_title}" class="remove-btn js-remove-btn-${id}" data-card-id="${id}">
+          <button type="button" class="remove-btn js-remove-btn-${id}" card-id=${id}>
           <svg class="close-icon" width="14" height="14">
             <svg class="close-icon" width="100" height="100">
               <path  stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933"></path>
