@@ -79,14 +79,14 @@ export function renderWatchedMovie(filmObject) {
               </div>
             </div>
             
-          </a>
+          
           <button type="button" class="remove-btn js-remove-btn-${id}" data-card-id=${id}>
-          <svg class="close-icon" width="14" height="14">
-            <svg class="close-icon" width="100" height="100">
-              <path  stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933"></path>
-              <path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 23.467l14.933-14.933"></path>
+          <svg class="close-icon">
+              <path d="M8 8L22 22"  stroke-width="2"/>
+              <path d="M8 22L22 8"  stroke-width="2"/>
           </svg>
           </button>
+          </a>
         </li>`}, "");
   refs.movieGallery.insertAdjacentHTML('beforeend', markup);
   
