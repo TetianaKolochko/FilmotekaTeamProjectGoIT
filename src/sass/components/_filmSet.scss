@@ -55,11 +55,7 @@
 		}
 		&:hover .remove-btn{
 			display: flex;
-			// background-color: $color-accent;
 		}
-		// &:hover .remove-btn .close-icon{
-		// 	stroke: $color-darkest;
-		// }
 	}
 	
 }
@@ -154,15 +150,13 @@
 		z-index: 2;
 		opacity: 1;
 		background-color: $color-accent;
-		// fill: $color-darkest;
 			top: 10px;
 			right: 15px;
 			display: none;
 			padding: 0;
-			width: 32px;
-			height: 32px;
+			width: 30px;
+			height: 30px;
 			justify-content: center;
-			// margin-left: auto;
 			align-items: center;
 			border: none;
 			cursor: pointer;
@@ -170,33 +164,27 @@
 		
 			&:hover,
 			&:focus {
-				background-color: black;
-				// fill: $color-accent;
-				transform: scale(1.03);
-
+				background-color: $color-darkest;
+				transform: scale(1.25);
 			}
+			&:hover .gallery__link{
+				box-shadow: 0 0 5px 5px rgba(255, 107, 1, 0.879);
+					transform: scale(1.03);
+			}
+
 	}
 
 	.close-icon {
 			display: inline-block;
 			justify-content: center;
 			align-items: center;
-			width: 32px;
-			height: 32px;
+			width: 30px;
+			height: 30px;
 			border-radius: 50%;
 			stroke-width: 0;
 			stroke: $color-darkest;
 		&:hover,
 		&:focus {
-			// background-color: aqua;
-			transform: scale(1.03);
 			stroke: $color-accent;
 		}
-				// &:hover, .remove-btn,
-				// &:focus, .remove-btn{
-				// 	background-color: black;
-				// 	transform: scale(1.05);
-				// 	stroke: $color-accent;
-				// }
-
 	}
