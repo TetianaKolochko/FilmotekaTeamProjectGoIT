@@ -18,5 +18,5 @@ export const refs = {
     queueBtn: document.querySelector(".queue-btn"),
     clearList: document.querySelector(".clear-list-btn"),
     clearAllBtn: document.querySelector(".clear-all-btn"),
-    body:document.querySelector('body'),
+    body: document.querySelector('body'),
 }

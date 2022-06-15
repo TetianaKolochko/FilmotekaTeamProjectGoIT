@@ -81,8 +81,7 @@ export function renderWatchedMovie(filmObject) {
             
           </a>
           <button type="button" class="remove-btn js-remove-btn-${id}" data-card-id=${id}>
-          <svg class="close-icon" width="14" height="14">
-            <svg class="close-icon" width="100" height="100">
+          <svg class="close-icon">
               <path  stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933"></path>
               <path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 23.467l14.933-14.933"></path>
           </svg>
