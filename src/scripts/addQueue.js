@@ -4,9 +4,11 @@ import { resetGallery } from '../scripts/resetGallery.js';
 import { findCardId } from './fetch';
 
 const addQueue = () => {
+  // console.log('1');
     const btn = document.querySelector('.modal__container .btn__queue');
 
   btn.addEventListener('click', function () {
+    btn.classList.add('active');
     const id = btn.getAttribute('data-id');
 
     if (load('queue') === undefined) {

@@ -3,8 +3,7 @@ import { GENRES } from "../genre";
 
 
 export function createModalFilmCard({ movie }) {
-   
-    const genresArray = getGenresToId(movie.genres);
+  const genresArray = getGenresToId(movie.genres);
   const genresText = addGenres(genresArray);
   let isPoster = `https://image.tmdb.org/t/p/original/${movie.poster_path}`;
 
@@ -57,10 +56,10 @@ export function createModalFilmCard({ movie }) {
           
            <div class="film__button__wrapper">
 
-               <button type="button" class=" film__button btn__watch" data-id="${
+               <button type="button" class="film__button btn__watch" data-id="${
                  movie.id
                }">Add to watched</button>
-               <button type="button" class=" film__button btn__queue" data-id="${
+               <button type="button" class="film__button btn__queue" data-id="${
                  movie.id
                }">Add to queue</button>
 
