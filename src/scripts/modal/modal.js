@@ -70,7 +70,9 @@ function checkToAddToLocalStorage(itemName, filmId) {
   const arrayOfIdFilmload = load(itemName);
   const watchedBtnModal = document.querySelector('.btn__watch');
   const queueBtnModal = document.querySelector(".btn__queue");
-  
+  if (!arrayOfIdFilmload) {
+    return;
+  }
   return arrayOfIdFilmload.map(id => {
     let idToNumber = Number(id);
     if (idToNumber === filmId) {
