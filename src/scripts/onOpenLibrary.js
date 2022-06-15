@@ -82,9 +82,10 @@ function deleteActiveLink() {
 }
 
 function onLiblaryClick() {
-  
+  if (refs.queueBtn.classList.contains('active')) {
+    return getWatchedMovie('queue');
+  }
   getWatchedMovie('watched');
-
   // refs.removeBtn.addEventListener('click', removeCardFromList);
 }
 

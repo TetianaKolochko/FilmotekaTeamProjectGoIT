@@ -22,20 +22,24 @@ export function renderMovieCardOnMainPage(filmArray) {
 
   const markup = filmArray.reduce((html, film) => {
     const { original_title, poster_path, genre_ids, id, release_date } = film;
+    let title = original_title;
     const genresArray = getGenresToId(genre_ids);
     const genresText = sliceGenres(genresArray);
     const slisedDate = sliceDate(release_date);
+   
     let isPoster = `https://image.tmdb.org/t/p/w500/${poster_path}`;
-
     if (!poster_path) {
       isPoster = `https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png`;
+    }
+    if (original_title === "") {
+      title = "Title was not found";
     }
      return html +=
         `<li class="gallery__item">
           <a class="gallery__link" href="" data-id=${id}>
             <img class='gallery__poster' src='${isPoster}' loading="lazy" alt='Poster for film ${original_title}'/>
             <div class="gallery__movie-details">
-              <p class="movie-details__movie-name">${original_title}</p>
+              <p class="movie-details__movie-name">${title}</p>
               <p class="movie-details__movie-info">${genresText} | ${slisedDate}</p>
             </div>
           </a>
@@ -51,6 +55,7 @@ export function renderWatchedMovie(filmObject) {
   const markup = filmObject.reduce((html, film) => {
     const { original_title, poster_path, genres, id, release_date, vote_average } = film;
     btnclass = `.js-remove-btn-${id}`;
+    let title = original_title;
     const genresNameArray = getGenresToName(genres);
     const genresText = sliceGenres(genresNameArray);
     const slisedDate = sliceDate(release_date);
@@ -59,12 +64,15 @@ export function renderWatchedMovie(filmObject) {
     if (!poster_path) {
       isPoster = `https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png`;
     }
+    if (original_title === "") {
+      title = "Title was not found";
+    }
     return html +=
       `<li class="gallery__item">
           <a class="gallery__link" href="" data-id=${id}>
             <img class='gallery__poster' src='${isPoster}' loading="lazy" alt='Poster for film ${original_title}' />
             <div class="gallery__movie-details">
-              <p class="movie-details__movie-name">${original_title}</p>
+              <p class="movie-details__movie-name">${title}</p>
               <div class="movie-details-wrap">
                 <p class="movie-details__movie-info">${genresText} | ${slisedDate}</p>
                 <div class="movie-details-rate">${vote_average}</div>
@@ -113,7 +121,10 @@ function getGenresToName(idArray) {
 }
 
 
- export function sliceGenres(genreArray) {
+export function sliceGenres(genreArray) {
+  if (genreArray.length < 1) {
+    return "Genres was no found";
+  }
   if (genreArray.length > 3) {
     const slicedGenredWordArray = genreArray.slice(0, 2);
     slicedGenredWordArray.push('Other');
@@ -123,5 +134,8 @@ function getGenresToName(idArray) {
 };
 
 function sliceDate(filmDate) {
+  if (filmDate === "") {
+    return "Unknown date";
+  }
   return filmDate.slice(0, 4);
 }
