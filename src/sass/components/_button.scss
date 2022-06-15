@@ -1,5 +1,5 @@
 .film__button {
-    width: 112px;
+    width: 110px;
     height: 44px;
     text-align: center;
     text-transform: uppercase;
@@ -11,6 +11,15 @@
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
      background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
      box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+ 
+     @media screen and (min-width: 768px) {
+            width: 125px;
+            }
+
+
+    @media screen and (min-width: 1024px) {
+            width: 136px;
+            }
 
     &:hover {
         background-color: $color-accent;
@@ -41,10 +50,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
-   
-  
+    width: 40px;
+    height: 40px;
+    
     border: none;
     border-radius: 50%;
     background-color: transparent;
@@ -118,6 +126,7 @@
     height: 30px;
     stroke-width: 0;
     stroke: $color-darkest;
+   
    
 }
 .close-modal__trailer {
