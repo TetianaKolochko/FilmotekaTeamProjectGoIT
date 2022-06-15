@@ -1,23 +1,22 @@
-import fetch from './fetch';
-import { input } from './fetch';
-import NProgress from 'nprogress';
-import renderGallery from './movieGallary';
-import { markupGallery } from './startPageMarkup';
+import renderLibrary from './movieCardLibrary';
 
-const mainContainer = document.querySelector('.movie-card-list');
 const paginationList = document.querySelector('.pagination');
+const cardsContainer = document.querySelector('.movie-card-list');
 
+const notesOnPage320 = 4;
+const notesOnPage768 = 8;
+const notesOnPage1024 = 9;
 let globalPage = 0;
-let allGenres;
+let data = [];
 
-function renderPaginationButtons(allPages, page) {
+function renderPaginationBTN(arrays, page, allPages) {
+  data = arrays;
   let paginationMarkup = '';
-  let beforePreviousPage = page - 2;
-  let previousPage = page - 1;
-  let nextPage = page + 1;
-  let afterNextPage = page + 2;
-  globalPage = page;
-
+  let beforePreviousPage = +page - 2;
+  let previousPage = +page - 1;
+  let nextPage = +page + 1;
+  let afterNextPage = +page + 2;
+  globalPage = +page;
   if (allPages <= 1) {
     return;
   }
@@ -109,47 +108,72 @@ function onPaginationChoice(e) {
       globalPage = value;
   }
   resetPage();
-
-  NProgress.start();
-
-  fetch.fetchGenresList().then(data => {
-    allGenres = data;
+  changeScreenDevice(data);
+  window.scroll({
+    top: 100,
+    left: 100,
+    behavior: 'smooth',
   });
-
-  if (input.value) {
-    fetch
-      .movieSearch(globalPage)
-
-      .then(data => {
-        NProgress.done();
-        const filmData = renderGallery(data.results, allGenres);
-        const markupMovie = markupGallery(filmData);
-        mainContainer.insertAdjacentHTML('beforeend', markupMovie);
-
-        renderPaginationButtons(data.total_pages, data.page);
-      })
-      .catch(error => console.log(error));
-  } else {
-    fetch
-      .popularFilm(globalPage)
-      .then(data => {
-        const filmData = renderGallery(data.results, allGenres);
-        const markupMovie = markupGallery(filmData);
-        mainContainer.insertAdjacentHTML('beforeend', markupMovie);
-        renderPaginationButtons(data.total_pages, data.page);
-      })
-      .catch(error => console.log(error));
-    NProgress.done();
-  }
 }
 
 function resetPage() {
-  mainContainer.innerHTML = '';
+  cardsContainer.innerHTML = '';
 }
 
 function resetPagination() {
   paginationList.innerHTML = '';
 }
 
-export { renderPaginationButtons };
-export { resetPagination };
+function changeScreenDevice(arrays) {
+  const mediaQuery320 = window.matchMedia(
+    '(min-width: 320px) and (max-width: 767px)'
+  );
+  const mediaQuery768 = window.matchMedia(
+    '(min-width: 768px) and (max-width: 1023px)'
+  );
+  const mediaQuery1024 = window.matchMedia('(min-width: 1024px)');
+  function mediaQuery320Handler(mq) {
+    if (mq.matches) {
+      let start = (globalPage - 1) * notesOnPage320;
+      let end = start + notesOnPage320;
+      renderLibrary(arrays.slice(start, end));
+      renderPaginationBTN(
+        arrays,
+        globalPage,
+        Math.ceil(arrays.length / notesOnPage320)
+      );
+    }
+  }
+  function mediaQuery768Handler(mq) {
+    if (mq.matches) {
+      let start = (globalPage - 1) * notesOnPage768;
+      let end = start + notesOnPage768;
+      renderLibrary(arrays.slice(start, end));
+      renderPaginationBTN(
+        arrays,
+        globalPage,
+        Math.ceil(arrays.length / notesOnPage768)
+      );
+    }
+  }
+  function mediaQuery1024Handler(mq) {
+    if (mq.matches) {
+      let start = (globalPage - 1) * notesOnPage1024;
+      let end = start + notesOnPage1024;
+      renderLibrary(arrays.slice(start, end));
+      renderPaginationBTN(
+        arrays,
+        globalPage,
+        Math.ceil(arrays.length / notesOnPage1024)
+      );
+    }
+  }
+  mediaQuery320.addListener(mediaQuery320Handler);
+  mediaQuery768.addListener(mediaQuery768Handler);
+  mediaQuery1024.addListener(mediaQuery1024Handler);
+  mediaQuery320Handler(mediaQuery320);
+  mediaQuery768Handler(mediaQuery768);
+  mediaQuery1024Handler(mediaQuery1024);
+}
+
+export { renderPaginationBTN, resetPagination };
