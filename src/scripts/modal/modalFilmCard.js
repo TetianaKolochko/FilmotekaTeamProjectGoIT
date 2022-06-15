@@ -14,7 +14,7 @@ export function createModalFilmCard({ movie }) {
       movie.title = "Title was not found";
    }
    if (movie.overview === "") {
-      movie.overview = "Title was not found";
+      movie.overview = "No description";
    }
   
     return `
