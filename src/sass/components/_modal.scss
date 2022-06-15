@@ -119,6 +119,19 @@ padding-top: 74px;
     margin-bottom: 21px;
     color: $color-darkest;
     font-weight: 500;
+    overflow: scroll;
+    width: 240px;
+    max-height: 260px;
+
+@media screen and (min-width: 768px) {
+        width: 264px;
+       
+    }
+
+@media screen and (min-width: 1024px) {
+    width: 390px;
+    max-height: 110px;
+}
 }
 
 .film__button__wrapper {

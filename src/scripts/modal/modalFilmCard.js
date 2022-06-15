@@ -9,7 +9,14 @@ export function createModalFilmCard({ movie }) {
 
     if (!movie.poster_path) {
       isPoster = `https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png`;
-    }
+   }
+   if (movie.title === "") {
+      movie.title = "Title was not found";
+   }
+   if (movie.overview === "") {
+      movie.overview = "Title was not found";
+   }
+  
     return `
          <div class="modal__container">
      <div class="film__image">
@@ -65,22 +72,24 @@ export function createModalFilmCard({ movie }) {
 
              </div>
               <button class="modal-close-btn">
-     <svg class="close-modal__icon" width="20" height="20">
- <path  stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933"></path>
-<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 23.467l14.933-14.933"></path>
-     </svg>
+     <svg class="close-modal__icon" width="30" height="30">
+ <path d="M8 8L22 22"  stroke-width="2"/>
+<path d="M8 22L22 8"  stroke-width="2"/>
+</svg>
      </button>
                </div>
              </div>`;
-   
+  
 }
     
 function getGenresToId(idArray) {  
   return idArray.map(GENRES => GENRES.name);  
 }
 
- function addGenres(genreArray) {
+function addGenres(genreArray) {
+     if (genreArray.length < 1) {
+    return "Genres was no found";
+  }
   
   return genreArray.join(", ")
 }
-
