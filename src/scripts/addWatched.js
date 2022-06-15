@@ -8,6 +8,7 @@ const addWatched = () => {
   const btn = document.querySelector('.modal__container .btn__watch');
 
   btn.addEventListener('click', function () {
+    btn.classList.add('active');
     const id = btn.getAttribute('data-id');
 
     if (load('watched') === undefined) {

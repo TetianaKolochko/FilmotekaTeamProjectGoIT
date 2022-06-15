@@ -4,6 +4,7 @@ import { createModalFilmCard } from './modalFilmCard.js';
 import addWatched from '../addWatched.js';
 import addQueue from '../addQueue.js';
 import movieTrailer from './modalTrailer.js';
+import { load, save, remove } from '../localStorageApi.js';
 
 
 import * as basicLightbox from 'basiclightbox';
@@ -23,12 +24,14 @@ function openModal(e) {
       //console.log(e.target.nodeName);
       //console.log(movie);            
       const modal = basicLightbox.create(createModalFilmCard({ movie }));      
-  
       modal.show();
       document.body.style.overflow = 'hidden';
       addWatched();
       addQueue();
       movieTrailer();
+      checkToAddToLocalStorage("watched", movie.id);
+      checkToAddToLocalStorage("queue", movie.id);
+
       const closeBtn = document.querySelector('.modal-close-btn');
       closeBtn.addEventListener('click', closeModal);
 
@@ -58,6 +61,29 @@ function openModal(e) {
     })
     .then(data => {})
     .catch(error => {
-      console.log('oops!');
+      console.log('oops!', error);
     });
+}
+
+
+function checkToAddToLocalStorage(itemName, filmId) {
+  const arrayOfIdFilmload = load(itemName);
+  const watchedBtnModal = document.querySelector('.btn__watch');
+  const queueBtnModal = document.querySelector(".btn__queue");
+  
+  return arrayOfIdFilmload.map(id => {
+    let idToNumber = Number(id);
+    if (idToNumber === filmId) {
+      if (itemName === "watched") {
+        watchedBtnModal.textContent = `Added to watched`;
+        watchedBtnModal.setAttribute('disabled', "disabled");
+        watchedBtnModal.classList.add('active');
+      }
+      if (itemName === "queue") {
+        queueBtnModal.textContent = `Added to queue`;
+        queueBtnModal.setAttribute('disabled', "disabled");
+        queueBtnModal.classList.add('active');
+      }
+    }
+  })
 }
