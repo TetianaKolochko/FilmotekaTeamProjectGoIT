@@ -36,7 +36,7 @@ export const teamIds = [
     text: '“You’re the second man who killed me this week, but I’ve got seven lives left.”',
   },
   {
-      name: 'Koloshko Tatiana',
+      name: 'Kolochko Tetiana',
       position: 'Developer',
       img: Rogue ,
       github:'https://github.com/TetianaKolochko' ,
