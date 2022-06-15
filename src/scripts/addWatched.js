@@ -9,6 +9,7 @@ const addWatched = () => {
 
   btn.addEventListener('click', function () {
     btn.classList.add('active');
+    btn.textContent = "Added to watched";
     const id = btn.getAttribute('data-id');
 
     if (load('watched') === undefined) {

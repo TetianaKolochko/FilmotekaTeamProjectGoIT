@@ -75,12 +75,12 @@ function checkToAddToLocalStorage(itemName, filmId) {
     let idToNumber = Number(id);
     if (idToNumber === filmId) {
       if (itemName === "watched") {
-        watchedBtnModal.textContent = `Added to watched`;
+        watchedBtnModal.textContent = "Added to watched";
         watchedBtnModal.setAttribute('disabled', "disabled");
         watchedBtnModal.classList.add('active');
       }
       if (itemName === "queue") {
-        queueBtnModal.textContent = `Added to queue`;
+        queueBtnModal.textContent = "Added to queue";
         queueBtnModal.setAttribute('disabled', "disabled");
         queueBtnModal.classList.add('active');
       }

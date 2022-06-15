@@ -9,6 +9,7 @@ const addQueue = () => {
 
   btn.addEventListener('click', function () {
     btn.classList.add('active');
+    btn.textContent = "Added to queue";
     const id = btn.getAttribute('data-id');
 
     if (load('queue') === undefined) {
