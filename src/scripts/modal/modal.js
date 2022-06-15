@@ -25,7 +25,7 @@ function openModal(e) {
       //console.log(movie);            
       const modal = basicLightbox.create(createModalFilmCard({ movie }));      
       modal.show();
-      document.body.style.overflow = 'hidden';
+      //document.body.style.overflow = 'hidden';
       addWatched();
       addQueue();
       movieTrailer();
@@ -36,26 +36,26 @@ function openModal(e) {
       closeBtn.addEventListener('click', closeModal);
 
       window.addEventListener('keydown', closeModalHandler);
-      window.addEventListener('click', closeModalBackdrop);
+      //window.addEventListener('click', closeModalBackdrop);
 
-      function closeModalBackdrop(e) {        
+      /* function closeModalBackdrop(e) {        
         if (e.target.nodeName === 'DIV') {
           modal.close();
           document.body.style.overflow = '';
           window.removeEventListener('keydown', closeModalHandler);
         }
-        }
+        } */
 
       function closeModalHandler(e) {        
         if (e.code === 'Escape') {
           modal.close();
-          document.body.style.overflow = '';
+          //document.body.style.overflow = '';
           window.removeEventListener('keydown', closeModalHandler);
         }
       }
       function closeModal(e) {
         modal.close();
-        document.body.style.overflow = '';
+        //document.body.style.overflow = '';
         window.removeEventListener('keydown', closeModalHandler);
       }
     })
