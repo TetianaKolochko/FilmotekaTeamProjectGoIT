@@ -125,7 +125,10 @@ padding-top: 74px;
     display: flex;
 }
 
-iframe {
-    
+iframe {    
     max-width: 95%;
+    display: block;
+    margin-left: auto;
+        margin-right: auto;
 }
+
