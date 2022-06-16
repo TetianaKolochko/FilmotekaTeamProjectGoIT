@@ -17,7 +17,7 @@ export const teamIds = [
     img: captainAmerica ,
     github: 'https://github.com/EugeneNorko',
     instagram: 'https://www.instagram.com/eugene.nnn/',
-    text: '“Compromise where you can. Where you can’t, don’t. Even if everyone is telling you that something wrong is something right. Even if the whole world is telling you to move, it is your duty to plant yourself like a tree, look them in the eye, and say. No, you move."',
+    text: `"Before we get started, does anyone want to get out?" - Captain America`,
     },
   {
     name: 'Pavlovskaya Natalia',
@@ -36,7 +36,7 @@ export const teamIds = [
     text: '“You’re the second man who killed me this week, but I’ve got seven lives left.”',
   },
   {
-      name: 'Koloshko Tatiana',
+      name: 'Kolochko Tetiana',
       position: 'Developer',
       img: Rogue ,
       github:'https://github.com/TetianaKolochko' ,
