@@ -2,7 +2,7 @@ import { teamIds }  from '../team';
 import { refs } from '../refs.js';
 import Siema from 'siema';
 import { lockBodyScroll }  from '../bodyScroll.js';
-
+import {removeButtonToTop,createButtonToTop} from '../to-top-btn'
 
 const setting = {
     selector: '.siema_one',
@@ -75,6 +75,8 @@ function onOpenModal(e) {
     refsModal.modal.addEventListener('click', onBackdropCloseModal);
     refsModal.modal.classList.add('shown');
     lockBodyScroll();
+
+    removeButtonToTop()
   }
   
 function onCloseModal ()  {
@@ -82,6 +84,8 @@ function onCloseModal ()  {
       refsModal.body.removeEventListener('Keydown', onEscCloseModal);
       refsModal.modal.removeEventListener('click', onBackdropCloseModal);
       lockBodyScroll();
+
+      createButtonToTop()
   }
   
 function onEscCloseModal(e) {
