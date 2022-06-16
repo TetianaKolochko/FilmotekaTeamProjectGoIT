@@ -11,11 +11,11 @@ const cardRefs = {
 
 getPopularMovieList();
 
-export function getPopularMovieList(needPage = 1) {
+export function getPopularMovieList() {
   let currentPage = load("numberOfPagePopular");
   // console.log(currentPage);
   if (!currentPage) {
-    currentPage = needPage;
+    currentPage = 1;
   }
   return popularFilm(currentPage).then((filmSet) => {
     const filmArray = filmSet.results;
