@@ -4,9 +4,10 @@ import { resetGallery } from './resetGallery';
 import { renderMovieCardOnMainPage } from './renderFilmCard';
 import { getPopularMovieList } from './renderFilmCard.js';
 import { renderPaginationButtons } from './pagination.js';
-
+import { popularFilm } from './fetch.js';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { save } from '../scripts/localStorageApi.js';
 
 
 
@@ -32,7 +33,12 @@ function onTexterialInput(e) {
         checkStartSpiner = false;
 
         Loading.remove();
-        return getPopularMovieList();
+        return popularFilm().then((filmSet) => {
+        const filmArray = filmSet.results;
+        renderMovieCardOnMainPage(filmArray)
+        renderPaginationButtons(filmSet.total_pages, 1);
+        save("numberOfPage", 1);
+        }).catch(err => console.log(err));;
     };
     
     createListFilms (curentCountri);
@@ -41,7 +47,7 @@ function onTexterialInput(e) {
 export function createListFilms (inputValue, page) {
 
     findWordKey(inputValue, page).then(inputValue => {
-        // console.log(inputValue.results)
+        // console.log(inputValue)
 
         checkStartSpiner = false;
 
@@ -49,7 +55,8 @@ export function createListFilms (inputValue, page) {
 
         if(inputValue.results.length<1){
             Notify.failure(`Can't find a movie with this name`);
-            return onShowSearchInfo();
+            onShowSearchInfo();
+            return renderPaginationButtons(inputValue.total_pages, inputValue.page);
         }
 
         renderMovieCardOnMainPage(inputValue.results);
