@@ -23,7 +23,12 @@ function openModal(e) {
     .then(movie => {
       //console.log(e.target.nodeName);
       //console.log(movie);            
-      const modal = basicLightbox.create(createModalFilmCard({ movie }));      
+      const modal = basicLightbox.create(createModalFilmCard({ movie }),
+        {
+          onShow: () => { document.body.style.overflow = 'hidden'; },
+          onClose: () => { document.body.style.overflow = 'visible' },
+        }
+      );      
       modal.show();
       
       addWatched();
@@ -33,8 +38,8 @@ function openModal(e) {
       checkToAddToLocalStorage("queue", movie.id);
 
       const closeBtn = document.querySelector('.modal-close-btn');
+      
       closeBtn.addEventListener('click', closeModal);
-
       window.addEventListener('keydown', closeModalHandler);
       
       function closeModalHandler(e) {        
@@ -47,8 +52,7 @@ function openModal(e) {
         modal.close();        
         window.removeEventListener('keydown', closeModalHandler);
       }
-    })
-    .then(data => {})
+    })    
     .catch(error => {
       console.log('oops!', error);
     });
@@ -77,4 +81,3 @@ function checkToAddToLocalStorage(itemName, filmId) {
     }
   })
 }
-
