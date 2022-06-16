@@ -104,6 +104,8 @@ export function renderWatchedMovie(filmObject) {
 }
 
 function removeCard(e) {
+  const currentPage = load("currentPageInLibrary");
+  // console.log(currentPage);
   const state = refs.watchedBtn.classList.contains("active");
   let activeLibrary = 'watched';
   if (!state) {
@@ -118,7 +120,7 @@ function removeCard(e) {
     const resalt = localStorageFile.filter(item => item !== id);
     // console.log('resalt :>> ', resalt);
     save(activeLibrary, resalt);
-    getWatchedMovie(activeLibrary);
+    getWatchedMovie(currentPage, activeLibrary);
   }
 
 export function getGenresToId(idArray) {
