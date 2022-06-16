@@ -88,7 +88,7 @@
 
     &:hover {
     box-shadow: 0 0 5px 5px rgba(255, 107, 1, 0.63);
-    transform: scale(1.03);
+    // transform: scale(1.03);
     }
 }
     
@@ -134,6 +134,9 @@
 }
 
 .modal__slider-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 35px;
     height: 35px;
     border-radius: 50%;
@@ -141,10 +144,19 @@
     border: 2px solid $color-accent;
     transition: box-shadow $duration $timing, transform $duration $timing;
     cursor:pointer;
+    color: $color-darkest;
 
     &:hover {
         box-shadow: 0 0 5px 5px rgba(255, 107, 1, 0.63);
         transform: scale(1.03);
     }
 }
+.icon__arrow {
+    fill: inherit;
+    stroke:inherit;
+}
 
+.modal__close-icon {
+    stroke:$color-darkest;
+    fill: $color-darkest;
+}

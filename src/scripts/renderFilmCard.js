@@ -3,6 +3,7 @@ import { refs } from './refs.js';
 import { GENRES } from './genre.js';
 import { getWatchedMovie } from "./addWatched";
 import { load, save, remove } from '../scripts/localStorageApi.js';
+import { renderPaginationButtons } from './pagination.js';
 
 const cardRefs = {
   delete: null,
@@ -11,9 +12,17 @@ const cardRefs = {
 getPopularMovieList();
 
 export function getPopularMovieList() {
-  return popularFilm().then((filmSet) => {
+  let currentPage = load("numberOfPagePopular");
+  // console.log(currentPage);
+  if (!currentPage) {
+    currentPage = 1;
+  }
+  return popularFilm(currentPage).then((filmSet) => {
     const filmArray = filmSet.results;
-    renderMovieCardOnMainPage(filmArray);
+    renderMovieCardOnMainPage(filmArray)
+    renderPaginationButtons(filmSet.total_pages, currentPage);
+    // console.log(filmArray);
+    // console.log(filmSet);
   }).catch(err => console.log(err));
 };
 
@@ -79,14 +88,14 @@ export function renderWatchedMovie(filmObject) {
               </div>
             </div>
             
-          </a>
+          
           <button type="button" class="remove-btn js-remove-btn-${id}" data-card-id=${id}>
-          <svg class="close-icon" width="14" height="14">
-            <svg class="close-icon" width="100" height="100">
-              <path  stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933"></path>
-              <path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 23.467l14.933-14.933"></path>
+          <svg class="close-icon">
+              <path d="M8 8L22 22"  stroke-width="2"/>
+              <path d="M8 22L22 8"  stroke-width="2"/>
           </svg>
           </button>
+          </a>
         </li>`}, "");
   refs.movieGallery.insertAdjacentHTML('beforeend', markup);
   
@@ -134,7 +143,7 @@ export function sliceGenres(genreArray) {
 };
 
 function sliceDate(filmDate) {
-  if (filmDate === "") {
+  if (filmDate === "" || !filmDate) {
     return "Unknown date";
   }
   return filmDate.slice(0, 4);

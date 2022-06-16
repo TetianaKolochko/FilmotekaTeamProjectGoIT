@@ -2,6 +2,9 @@ import { refs } from './refs.js';
 import { resetGallery } from './resetGallery.js';
 import { getPopularMovieList } from './renderFilmCard.js';
 import { getWatchedMovie } from './addQueue.js';
+import { load, save, remove } from '../scripts/localStorageApi.js';
+import { deletePagination } from './pagination.js';
+
 
 
 import {
@@ -16,7 +19,6 @@ refs.libraryBtn.addEventListener('click', onLiblaryClick);
 refs.watchedBtn.addEventListener('click', onWatchedClick);
 refs.queueBtn.addEventListener('click', onQueueClick);
 refs.clearList.addEventListener("click", onClearList);
-// refs.clearAllBtn.addEventListener("click", onClearAllClick);
 
 function onChangePage(e) {
   e.preventDefault();
@@ -48,6 +50,7 @@ function onLogoClick(e) {
 
 function showLibraryPage(targetElement) {
   if (!targetElement.classList.contains('header-nav__link--active')) {
+    deletePagination();
     resetGallery();
     refs.changedElementsToOpenLibrary.forEach(el => {
       return el.classList.add('js-open-library');
@@ -57,13 +60,16 @@ function showLibraryPage(targetElement) {
 }
 
 function showHomePage(targetElement) {
+  const currentPage = load("numberOfPage");
+  // console.log(currentPage);
   if (!targetElement.classList.contains('header-nav__link--active')) {
+    // console.log('home');
     resetGallery();
     refs.changedElementsToOpenLibrary.forEach(el => {
       return el.classList.remove('js-open-library');
     });
     if (refs.searchInput.value !== '') {
-      return createListFilms(refs.searchInput.value);
+      return createListFilms(refs.searchInput.value, currentPage);
     }
     getPopularMovieList();
   }
