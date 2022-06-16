@@ -6,3 +6,4 @@ import './scripts/modal/footerModal.js';
 import './scripts/localStorageApi.js';
 import './scripts/pagination.js';
 import './scripts/addQueue';
+import './scripts/to-top-btn'
