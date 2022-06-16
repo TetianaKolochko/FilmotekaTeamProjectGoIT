@@ -38,7 +38,7 @@ function onTexterialInput(e) {
         renderMovieCardOnMainPage(filmArray)
         renderPaginationButtons(filmSet.total_pages, 1);
         save("numberOfPage", 1);
-        }).catch(err => console.log(err));;
+        }).catch(err => console.log(err));
     };
     
     createListFilms (curentCountri);
