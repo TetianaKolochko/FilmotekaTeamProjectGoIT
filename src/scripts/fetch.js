@@ -35,32 +35,6 @@ export function findTrailer(idCard) {
   ).then(respons => respons.json());
 }
 
-export const input = document.querySelector('#search-query');
-
-export default {
-  async fetchGenresList() {
-    try {
-      const allGenres = await axios.get(
-        `https://api.themoviedb.org/3/genre/movie/list?api_key=${key}`
-      );
-      return allGenres.data;
-    } catch (error) {
-      console.error('Smth wrong with api:' + error.message);
-    }
-  },
-
-  async movieSearch(page = 1) {
-    try {
-      const foundMovies = await axios.get(
-        `https://api.themoviedb.org/3/search/movie?api_key=${key}&page=${page}&query=${input.value}`
-      );
-      return foundMovies.data;
-    } catch (error) {
-      console.error('Smth wrong with api:' + error.message);
-    }
-  },
-};
-
 // ------- Запити  для рендеренга розмітки
 
 //  .title - назва фільма

@@ -3,6 +3,7 @@ import { findWordKey } from './fetch';
 import { resetGallery } from './resetGallery';
 import { renderMovieCardOnMainPage } from './renderFilmCard';
 import { getPopularMovieList } from './renderFilmCard.js';
+import { renderPaginationButtons } from './pagination.js';
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
@@ -37,9 +38,10 @@ function onTexterialInput(e) {
     createListFilms (curentCountri);
 }
 
-export function createListFilms (inputValue) {
+export function createListFilms (inputValue, page) {
 
-    findWordKey(inputValue).then(inputValue=>{
+    findWordKey(inputValue, page).then(inputValue => {
+        // console.log(inputValue.results)
 
         checkStartSpiner = false;
 
@@ -51,6 +53,7 @@ export function createListFilms (inputValue) {
         }
 
         renderMovieCardOnMainPage(inputValue.results);
+        renderPaginationButtons(inputValue.total_pages, inputValue.page);
     })
 
 }

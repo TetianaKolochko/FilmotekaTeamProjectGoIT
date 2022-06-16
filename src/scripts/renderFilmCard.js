@@ -3,6 +3,7 @@ import { refs } from './refs.js';
 import { GENRES } from './genre.js';
 import { getWatchedMovie } from "./addWatched";
 import { load, save, remove } from '../scripts/localStorageApi.js';
+import { renderPaginationButtons } from './pagination.js';
 
 const cardRefs = {
   delete: null,
@@ -11,9 +12,17 @@ const cardRefs = {
 getPopularMovieList();
 
 export function getPopularMovieList() {
-  return popularFilm().then((filmSet) => {
+  let currentPage = load("numberOfPagePopular");
+  // console.log(currentPage);
+  if (!currentPage) {
+    currentPage = 1;
+  }
+  return popularFilm(currentPage).then((filmSet) => {
     const filmArray = filmSet.results;
-    renderMovieCardOnMainPage(filmArray);
+    renderMovieCardOnMainPage(filmArray)
+    renderPaginationButtons(filmSet.total_pages, currentPage);
+    // console.log(filmArray);
+    // console.log(filmSet);
   }).catch(err => console.log(err));
 };
 
@@ -134,7 +143,7 @@ export function sliceGenres(genreArray) {
 };
 
 function sliceDate(filmDate) {
-  if (filmDate === "") {
+  if (filmDate === "" || !filmDate) {
     return "Unknown date";
   }
   return filmDate.slice(0, 4);
