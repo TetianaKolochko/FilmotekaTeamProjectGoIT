@@ -51,7 +51,7 @@ export function getWatchedMovie(page, pageName) {
 
 function sliceLibraryArray(array, valueOfPage) {
   let numberValueOfPage = Number(valueOfPage);
-  setCurrentPage = save("currentPageInLibrary", numberValueOfPage);
+  save("currentPageInLibrary", numberValueOfPage);
   let totalPages = Math.ceil(array.length / 20);
   // console.log(totalPages);
   // console.log(numberValueOfPage);
