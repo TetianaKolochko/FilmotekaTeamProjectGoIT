@@ -27,22 +27,3 @@ const addQueue = () => {
   });
 };
 export default addQueue;
-
-export function getWatchedMovie(moviesIds) {
-  const localStorageFile = load(moviesIds);
-  // console.log('-------------------------------------------- :>>');
-  resetGallery();
-  if (localStorageFile) {
-    
-    return localStorageFile.map((filmId) => {
-      findCardId(filmId).then(filmObj => {
-        // console.log('Whatch object :>> ');
-        // console.log(filmObj);
-        const filmArr = [filmObj]
-        // console.log('Film Arr :>> ');
-        // console.log(filmArr);
-        return renderWatchedMovie(filmArr);
-      })
-    })
-  }
-}
