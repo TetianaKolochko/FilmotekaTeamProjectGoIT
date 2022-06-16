@@ -55,6 +55,7 @@ function showLibraryPage(targetElement) {
     refs.changedElementsToOpenLibrary.forEach(el => {
       return el.classList.add('js-open-library');
     });
+   
   }
 }
 
