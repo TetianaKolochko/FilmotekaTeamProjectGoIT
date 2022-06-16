@@ -19,9 +19,9 @@ export function renderPaginationButtons(allPages, page) {
     let afterNextPage = page + 2;
     globalPage = page;
     if (allPages <= 1) {
-        return;
-    }
-
+      return deletePagination();
+  }
+  
     if (page > 1) {
         paginationMarkup += `<li class="pagination-item pagination-arrow">&laquo</li>`;
     }
@@ -67,7 +67,7 @@ export function renderPaginationButtons(allPages, page) {
     if (page < allPages) {
         paginationMarkup += `<li class="pagination-item pagination-arrow">&raquo</li>`;
     }
-
+  // console.log(page);
     paginationList.innerHTML = paginationMarkup;
 
     paginationList.addEventListener('click', onPaginationChoice);
@@ -105,6 +105,7 @@ function onPaginationChoice(e) {
     findWordKey(refs.searchInput.value, globalPage)
       .then(inputValue => {
         // console.log(inputValue);
+        console.log("pagi");
 
         renderMovieCardOnMainPage(inputValue.results);
         renderPaginationButtons(inputValue.total_pages, inputValue.page);
