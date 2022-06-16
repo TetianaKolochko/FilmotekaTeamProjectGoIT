@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 const key = '1e3bd345eb5d29ac0f4521d096bb0e9d';
 
 // приклад імпорту: import { findWordKey } from './scripts/fetch';
