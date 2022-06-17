@@ -3,12 +3,6 @@ import { renderMovieCardOnMainPage } from "./renderFilmCard.js";
 import { resetGallery } from './resetGallery.js';
 import { refs } from './refs.js';
 import { load, save, remove } from '../scripts/localStorageApi.js';
-
-
-
-// const mainContainer = document.querySelector('.js-gallery');
-const paginationList = document.querySelector('.pagination');
-// const cardsContainer = document.querySelector('.js-gallery');
 let globalPage = 0;
 
 export function renderPaginationButtons(allPages, page) {
@@ -19,11 +13,11 @@ export function renderPaginationButtons(allPages, page) {
     let afterNextPage = page + 2;
     globalPage = page;
     if (allPages <= 1) {
-      return deletePagination();
-  }
-  
+        return deletePagination();
+    }
+
     if (page > 1) {
-        paginationMarkup += `<li class="pagination-item pagination-arrow">&laquo</li>`;
+        paginationMarkup += `<li class="pagination-item pagination-arrow">&lt;</li>`;
     }
 
     if (page > 3) {
@@ -65,12 +59,12 @@ export function renderPaginationButtons(allPages, page) {
     }
 
     if (page < allPages) {
-        paginationMarkup += `<li class="pagination-item pagination-arrow">&raquo</li>`;
+        paginationMarkup += `<li class="pagination-item pagination-arrow">&gt;</li>`;
     }
-  // console.log(page);
-    paginationList.innerHTML = paginationMarkup;
 
-    paginationList.addEventListener('click', onPaginationChoice);
+    refs.paginationList.innerHTML = paginationMarkup;
+
+    refs.paginationList.addEventListener('click', onPaginationChoice);
 }
 
 function onPaginationChoice(e) {
@@ -79,10 +73,10 @@ function onPaginationChoice(e) {
   }
   const value = e.target.textContent;
   switch (value) {
-    case '«':
+    case '<':
       globalPage -= 1;
       break;
-    case '»':
+    case '>':
       globalPage += 1;
       break;
     case '...':
@@ -105,7 +99,6 @@ function onPaginationChoice(e) {
     findWordKey(refs.searchInput.value, globalPage)
       .then(inputValue => {
         // console.log(inputValue);
-        console.log("pagi");
 
         renderMovieCardOnMainPage(inputValue.results);
         renderPaginationButtons(inputValue.total_pages, inputValue.page);
@@ -126,5 +119,6 @@ function onPaginationChoice(e) {
 }
 
 export function deletePagination() {
-    paginationList.innerHTML = '';
+  refs.paginationList.innerHTML = '';
+  refs.paginationListLibrary.innerHTML = "";
 }

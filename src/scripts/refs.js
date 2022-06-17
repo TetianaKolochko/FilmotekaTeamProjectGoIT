@@ -19,4 +19,7 @@ export const refs = {
     clearList: document.querySelector(".clear-list-btn"),
     clearAllBtn: document.querySelector(".clear-all-btn"),
     body: document.querySelector('body'),
+    paginationList:document.querySelector('.pagination'),
+    paginationListLibrary: document.querySelector('.pagination.pagination__library'),
+    mainSection: document.querySelector('.mainPage__section'),
 }

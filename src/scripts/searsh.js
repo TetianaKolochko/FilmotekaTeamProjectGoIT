@@ -8,6 +8,7 @@ import { popularFilm } from './fetch.js';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { save } from '../scripts/localStorageApi.js';
+import forEmpryPage from './forEmptyPage.js';
 
 
 
@@ -21,6 +22,7 @@ let checkStartSpiner = null;
 
 function onTexterialInput(e) {
     onHideSearchInfo()
+    refs.mainSection.classList.remove('openLibrary');
     resetGallery();
 
     checkStartSpiner = true;
@@ -52,10 +54,10 @@ export function createListFilms (inputValue, page) {
         checkStartSpiner = false;
 
         Loading.remove();
-
         if(inputValue.results.length<1){
             Notify.failure(`Can't find a movie with this name`);
             onShowSearchInfo();
+            refs.mainSection.classList.add('openLibrary');
             return renderPaginationButtons(inputValue.total_pages, inputValue.page);
         }
 

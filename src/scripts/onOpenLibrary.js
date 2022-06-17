@@ -1,12 +1,10 @@
 import { refs } from './refs.js';
 import { resetGallery } from './resetGallery.js';
 import { getPopularMovieList } from './renderFilmCard.js';
-import { getWatchedMovie } from './addQueue.js';
+import { getWatchedMovie } from './addWatched.js';
 import { load, save, remove } from '../scripts/localStorageApi.js';
 import { deletePagination } from './pagination.js';
-
-
-
+import forEmpryPage from './forEmptyPage.js';
 import {
   createListFilms,
   onHideSearchInfo,
@@ -50,7 +48,6 @@ function onLogoClick(e) {
 
 function showLibraryPage(targetElement) {
   if (!targetElement.classList.contains('header-nav__link--active')) {
-    deletePagination();
     resetGallery();
     refs.changedElementsToOpenLibrary.forEach(el => {
       return el.classList.add('js-open-library');
@@ -61,9 +58,9 @@ function showLibraryPage(targetElement) {
 
 function showHomePage(targetElement) {
   const currentPage = load("numberOfPage");
-  // console.log(currentPage);
   if (!targetElement.classList.contains('header-nav__link--active')) {
-    // console.log('home');
+    refs.paginationList.style.display = "flex";
+    refs.paginationListLibrary.style.display = "none";
     resetGallery();
     refs.changedElementsToOpenLibrary.forEach(el => {
       return el.classList.remove('js-open-library');
@@ -71,6 +68,7 @@ function showHomePage(targetElement) {
     if (refs.searchInput.value !== '') {
       return createListFilms(refs.searchInput.value, currentPage);
     }
+    refs.mainSection.classList.remove('openLibrary');
     getPopularMovieList();
   }
 }
@@ -89,61 +87,46 @@ function deleteActiveLink() {
 }
 
 function onLiblaryClick() {
+  deletePagination();
   if (refs.queueBtn.classList.contains('active')) {
-    return getWatchedMovie('queue');
+    getWatchedMovie(1, 'queue');
+    forEmpryPage("queue");
+    return;
   }
-  getWatchedMovie('watched');
-  // refs.removeBtn.addEventListener('click', removeCardFromList);
+  getWatchedMovie(1, "watched");
+  forEmpryPage("watched");
 }
-
-function removeCardFromList() {
-  let localStorageFile = localStorage.getItem('watched');
-  console.log('localStorageFile :>> ', localStorageFile);
-  const cardId = removeBtn.getAttribute("card-id");
-  console.log('cardId :>> ', cardId);
-  for (let index = 0; index < localStorageFile.length; index++) {
-    if (localStorageFile[index] === cardId) {
-      localStorage.removeItem(localStorageFile[index]);
-    }
-  }
-  getWatchedMovie('watched');
-  }
 
 function onWatchedClick() {
   refs.clearList.innerText = "CLEAR WATCHED";
   refs.watchedBtn.classList.add('active');
   refs.queueBtn.classList.remove('active');
-  getWatchedMovie('watched');
-  // refs.removeBtn.addEventListener('click', removeCardFromList);
+  deletePagination();
+  getWatchedMovie(1, "watched");
+  forEmpryPage("watched");
 }
 
 function onQueueClick() {
   refs.clearList.innerText = "CLEAR QUEUE";
   refs.queueBtn.classList.add('active');
   refs.watchedBtn.classList.remove('active');
-  getWatchedMovie('queue');
-}
-
-function onClearAllClick() {
-  const messege = confirm("Do you want to clear you Library?");
-  if (messege) {
-    localStorage.clear();
-    getWatchedMovie('watched');
-    getWatchedMovie('queue');
-    console.log('Cleared localStore!');
-  }
+  deletePagination();
+  getWatchedMovie(1, "queue");
+  forEmpryPage("queue");
 }
 
 function onClearList() {
   if (refs.watchedBtn.classList.contains('active')) {
     
     localStorage.removeItem('watched');
-    getWatchedMovie('watched');
+    getWatchedMovie(1, "watched");
+    forEmpryPage("watched");
   }
   else if (refs.queueBtn.classList.contains('active')) {
     
     localStorage.removeItem('queue');
     getWatchedMovie('queue');
+    forEmpryPage("queue");
   }
   else {
     console.log('Choose your list in Library ');
