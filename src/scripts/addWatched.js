@@ -42,7 +42,7 @@ export function getWatchedMovie(page, pageName) {
     return slicedArrayForPage.map((filmId) => {
       findCardId(filmId).then(filmObj => {
         const filmArr = [filmObj];
-        return renderWatchedMovie(filmArr);
+        renderWatchedMovie(filmArr);
       })
     })
   }
@@ -66,20 +66,13 @@ function sliceLibraryArray(array, valueOfPage) {
 
 function renderPaginationButtonsLibrary(allPages, page) {
     let paginationMarkup = '';
-    let beforePreviousPage = page - 2;
-    let previousPage = page - 1;
+    let beforePreviousPage = Number(page - 2);
+    let previousPage = Number(page - 1);
     let nextPage = Number(page + 1);
     let afterNextPage = page + 2;
   globalPage = page;
   if (allPages <= 1) {
-    
       return deletePagination();
-      
-    }
-
-  if (page > 1) {
-      
-        paginationMarkup += `<li class="pagination-item pagination-arrow">&laquo</li>`;
     }
 
     if (page > 3) {
@@ -95,20 +88,18 @@ function renderPaginationButtonsLibrary(allPages, page) {
             paginationMarkup += `<li class="pagination-item">...</li>`;
         }
       if (beforePreviousPage > 0) {
-          
+            console.log('here');
             paginationMarkup += `<li class="pagination-item pagination-pages">${beforePreviousPage}</li>`;
         }
     }
 
   if (previousPage > 0) {
-      
         paginationMarkup += `<li class="pagination-item pagination-pages">${previousPage}</li>`;
     }
 
     paginationMarkup += `<li class="pagination-item pagination-pages current-page">${page}</li>`;
 
   if (page < allPages) {
-    // console.log(nextPage);
         paginationMarkup += `<li class="pagination-item pagination-pages">${nextPage}</li>`;
     }
 
@@ -128,11 +119,6 @@ function renderPaginationButtonsLibrary(allPages, page) {
           
         }
     }
-
-  if (page < allPages) {
-      
-        paginationMarkup += `<li class="pagination-item pagination-arrow">&raquo</li>`;
-    }
   refs.paginationListLibrary.innerHTML = paginationMarkup;
   refs.paginationListLibrary.addEventListener('click', onPaginationLibraryItemClick);
 }
@@ -143,12 +129,6 @@ function onPaginationLibraryItemClick(e) {
   }
   const value = e.target.textContent;
   switch (value) {
-    case '«':
-      globalPage -= 1;
-      break;
-    case '»':
-      globalPage += 1;
-      break;
     case '...':
       return;
     default:

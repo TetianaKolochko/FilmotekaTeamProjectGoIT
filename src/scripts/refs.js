@@ -20,5 +20,6 @@ export const refs = {
     clearAllBtn: document.querySelector(".clear-all-btn"),
     body: document.querySelector('body'),
     paginationList:document.querySelector('.pagination'),
-    paginationListLibrary:document.querySelector('.pagination.pagination__library'),
+    paginationListLibrary: document.querySelector('.pagination.pagination__library'),
+    mainSection: document.querySelector('.mainPage__section'),
 }
