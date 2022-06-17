@@ -1,5 +1,6 @@
 
 .modal__container {
+  
     overflow-x: auto;
     position: relative;
     margin: auto;
@@ -15,13 +16,13 @@
 @media screen and (min-width: 768px)  {
         display: flex;
         margin: auto;
-        max-width: 704px;
+        width: 704px;
        
         padding: 40px 30px;
 } 
 
 @media screen and (min-width: 1024px) {
-max-width: 814px;
+width: 814px;
 
 }
 }
@@ -32,12 +33,18 @@ max-width: 814px;
     margin-left: auto;
     display: block;
    
-    max-width: 254px;
-    height: auto;
+    width: 240px;
+    height: 357px;
     border-radius: 5px;
     margin-bottom: 20px;
+    @media screen and (min-width: 768px) {
+            width: 264px;
+            height: 373px;
+            margin-bottom: 0;
+        }
     @media screen and (min-width: 1024px) {
-            max-width: 375px;
+            width: 320px;
+            height: 475px;
             margin-bottom: 0;
         }
 
