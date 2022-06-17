@@ -17,7 +17,7 @@ export function renderPaginationButtons(allPages, page) {
     }
 
     if (page > 1) {
-        paginationMarkup += `<li class="pagination-item pagination-arrow">&laquo</li>`;
+        paginationMarkup += `<li class="pagination-item pagination-arrow">&lt;</li>`;
     }
 
     if (page > 3) {
@@ -59,7 +59,7 @@ export function renderPaginationButtons(allPages, page) {
     }
 
     if (page < allPages) {
-        paginationMarkup += `<li class="pagination-item pagination-arrow">&raquo</li>`;
+        paginationMarkup += `<li class="pagination-item pagination-arrow">&gt;</li>`;
     }
 
     refs.paginationList.innerHTML = paginationMarkup;
@@ -73,10 +73,10 @@ function onPaginationChoice(e) {
   }
   const value = e.target.textContent;
   switch (value) {
-    case '«':
+    case '<':
       globalPage -= 1;
       break;
-    case '»':
+    case '>':
       globalPage += 1;
       break;
     case '...':
