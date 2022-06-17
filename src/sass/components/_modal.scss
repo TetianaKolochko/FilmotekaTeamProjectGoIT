@@ -1,5 +1,6 @@
 
 .modal__container {
+  
     overflow-x: auto;
     position: relative;
     margin: auto;
@@ -37,7 +38,8 @@ max-width: 814px;
     border-radius: 5px;
     margin-bottom: 20px;
     @media screen and (min-width: 1024px) {
-            max-width: 375px;
+            width: 375px;
+            
             margin-bottom: 0;
         }
 
