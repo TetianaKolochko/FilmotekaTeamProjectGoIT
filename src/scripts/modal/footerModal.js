@@ -32,7 +32,6 @@ refsModal.closeModalBtn.addEventListener('click', onCloseModal);
 
 
 function renderTeamMember(teamIds) {
-    console.log('render :>> ');
     const markup = teamIds.reduce((html, member) => {
       const { name, position, github, instagram, img, text} = member;
       

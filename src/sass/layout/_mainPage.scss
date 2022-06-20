@@ -1,6 +1,19 @@
 .mainPage__section {
     min-height:85vh;
-    // background-color:rgba(83, 111, 111, 0.553);
+    background-color:$color-lightest;
+    @media screen and (min-width: 320px) {
+            padding-top: 20px;
+            padding-bottom: 40px;
+        }
+    
+        @media screen and (min-width: 768px) {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+    
+        @media screen and (min-width: 1024px) {
+            padding-top: 32px;
+        }
 }
 
 .section.openLibrary {
