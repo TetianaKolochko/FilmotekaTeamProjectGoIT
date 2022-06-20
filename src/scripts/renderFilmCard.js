@@ -107,6 +107,7 @@ export function renderWatchedMovie(filmObject) {
 
 function removeCard(e) {
   let currentPage = load("currentPageInLibrary");
+  // console.log(currentPage);
   const state = refs.watchedBtn.classList.contains("active");
   let activeLibrary = 'watched';
   if (!state) {
@@ -114,14 +115,14 @@ function removeCard(e) {
   }
   let localStorageFile = load(activeLibrary);
   
-    const id = e.currentTarget.getAttribute(`data-card-id`);
-    const resalt = localStorageFile.filter(item => item !== id);
-    save(activeLibrary, resalt);
-    if (resalt.length < 21) {
-      currentPage -= 1;
-    }
-    getWatchedMovie(currentPage, activeLibrary);
-    forEmpryPage(activeLibrary);
+  const id = e.currentTarget.getAttribute(`data-card-id`);
+  const resalt = localStorageFile.filter(item => item !== id);
+  save(activeLibrary, resalt);
+  // let newLocalStorageFile = ;
+  let totalPages = Math.ceil(load(activeLibrary).length / 20);
+
+  getWatchedMovie(totalPages, activeLibrary);
+  forEmpryPage(activeLibrary);
   
   }
 

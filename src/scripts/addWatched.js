@@ -27,7 +27,6 @@ const addWatched = () => {
         save('watched', movieListId);
       }
     }
-    // console.log(window.localStorage.getItem('watched'));
   });
 };
 export default addWatched;
@@ -53,6 +52,10 @@ function sliceLibraryArray(array, valueOfPage) {
   let numberValueOfPage = Number(valueOfPage);
   save("currentPageInLibrary", numberValueOfPage);
   let totalPages = Math.ceil(array.length / 20);
+  // console.log(totalPages);
+  // if (load("currentPageInLibrary") > totalPages) {
+    // totalPages -= 1;
+  // };
   // console.log(totalPages);
   // console.log(numberValueOfPage);
 
