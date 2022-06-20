@@ -116,16 +116,17 @@ function onQueueClick() {
 }
 
 function onClearList() {
+  deletePagination();
   if (refs.watchedBtn.classList.contains('active')) {
-    
     localStorage.removeItem('watched');
-    getWatchedMovie(1, "watched");
+    resetGallery();
+    // getWatchedMovie(1, "watched");
     forEmpryPage("watched");
   }
   else if (refs.queueBtn.classList.contains('active')) {
-    
     localStorage.removeItem('queue');
-    getWatchedMovie('queue');
+    resetGallery();
+    // getWatchedMovie('queue');
     forEmpryPage("queue");
   }
   else {

@@ -106,24 +106,22 @@ export function renderWatchedMovie(filmObject) {
 }
 
 function removeCard(e) {
-  const currentPage = load("currentPageInLibrary");
-  // console.log(currentPage);
+  let currentPage = load("currentPageInLibrary");
   const state = refs.watchedBtn.classList.contains("active");
   let activeLibrary = 'watched';
   if (!state) {
     activeLibrary = 'queue';
   }
-    // e.target.getAttribute(data-card-id);
-    // console.log('object :>> ', e.currentTarget);
-    let localStorageFile = load(activeLibrary);
-    // console.log('localStorageFile :>> ', localStorageFile);
+  let localStorageFile = load(activeLibrary);
+  
     const id = e.currentTarget.getAttribute(`data-card-id`);
-    // console.log('id :>> ', id);
     const resalt = localStorageFile.filter(item => item !== id);
-    // console.log('resalt :>> ', resalt);
     save(activeLibrary, resalt);
-  getWatchedMovie(currentPage, activeLibrary);
-  forEmpryPage(activeLibrary);
+    if (resalt.length < 21) {
+      currentPage -= 1;
+    }
+    getWatchedMovie(currentPage, activeLibrary);
+    forEmpryPage(activeLibrary);
   
   }
 

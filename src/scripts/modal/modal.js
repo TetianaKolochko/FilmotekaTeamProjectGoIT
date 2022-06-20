@@ -14,10 +14,14 @@ refs.movieGallery.addEventListener('click', openModal);
 
 function openModal(e) {
   e.preventDefault();
-
+  let isModalOpen = document.querySelector('.basicLightbox');
   if (e.target.nodeName !== 'A') {
     return;
   };
+  if (isModalOpen) {
+    return;
+  }
+  
     
   findCardId(e.target.dataset.id)
     .then(movie => {
